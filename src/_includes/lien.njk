@@ -1,0 +1,5 @@
+{%- if url.startsWith("TODO") -%}
+<span class="bouton a-venir" data-todo="{{ url }}">{{ texte }} <small>(bientôt disponible)</small></span>
+{%- else -%}
+<a class="bouton" href="{{ url }}"{% if not url.startsWith("mailto:") %} rel="noopener"{% endif %}>{{ texte }}</a>
+{%- endif -%}
