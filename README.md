@@ -1,6 +1,5 @@
 # isat-alumni-site
 
-The website of the Association des ingénieurs de l'ISAT (11ty).
+The website of the Association des ingénieurs de l'ISAT (11ty): `npm ci && npm run build` writes `_site/`.
 
-Empty for now. The content is in the `isat-alumni` try (`Documents\Tries\isat-alumni\site\`) until
-it moves here.
+The site is set up here; `Documents\Tries\isat-alumni\` is an archive, read for history only.

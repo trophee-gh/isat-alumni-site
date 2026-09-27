@@ -1,0 +1,13 @@
+# Build output and dependencies
+_site/
+node_modules/
+
+# The roster never enters git. Data arrives only as the public opt-in annuaire JSON,
+# committed deliberately with a negation rule when it exists.
+data/
+_data/
+src/_data/
+*.csv
+*.xlsx
+*.xls
+.env
