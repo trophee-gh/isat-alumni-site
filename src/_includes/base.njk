@@ -13,6 +13,7 @@
   .marque { display: inline-block; padding: .6rem 0; font-weight: 700; color: var(--bleu); text-decoration: none; font-size: 1.1rem; }
   nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: .25rem 1rem; padding: 0; margin: .5rem 0 0; }
   nav a { display: inline-block; padding: .6rem 0; color: var(--bleu); }
+  .cible { display: inline-block; padding: .6rem 0; }
   nav a[aria-current] { font-weight: 700; text-decoration: none; }
   h1 { color: var(--bleu); line-height: 1.2; }
   footer { background: var(--fond); border-radius: .5rem; margin-bottom: 1rem; }
@@ -33,7 +34,7 @@
     <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Accueil</a></li>
     <li><a href="/qui-sommes-nous/"{% if page.url == "/qui-sommes-nous/" %} aria-current="page"{% endif %}>Qui sommes-nous</a></li>
     <li><a href="/annuaire/"{% if page.url == "/annuaire/" %} aria-current="page"{% endif %}>Annuaire</a></li>
-    <li>{% if site.liens.linkedin.startsWith("TODO") %}<span data-todo="{{ site.liens.linkedin }}">Actualités (LinkedIn, bientôt)</span>{% else %}<a href="{{ site.liens.linkedin }}" rel="noopener">Actualités sur LinkedIn ↗</a>{% endif %}</li>
+    <li>{% if site.liens.linkedin.startsWith("TBD") %}<span data-tbd="{{ site.liens.linkedin }}">Actualités (LinkedIn, bientôt)</span>{% else %}<a href="{{ site.liens.linkedin }}" rel="noopener">Actualités sur LinkedIn ↗</a>{% endif %}</li>
   </ul></nav>
 </header>
 <main>

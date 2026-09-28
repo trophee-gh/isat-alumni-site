@@ -22,4 +22,4 @@ apprenti.
 
 ## Nous écrire
 
-<a href="mailto:contact@alumni-isat.fr">contact@alumni-isat.fr</a>
+<a class="cible" href="mailto:contact@alumni-isat.fr">contact@alumni-isat.fr</a>

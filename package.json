@@ -5,7 +5,8 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "check:annuaire": "node scripts/check-annuaire.mjs"
+    "check:annuaire": "node scripts/check-annuaire.mjs",
+    "check:offsite": "node scripts/check-offsite.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"
