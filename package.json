@@ -6,7 +6,10 @@
     "build": "eleventy",
     "start": "eleventy --serve",
     "check:annuaire": "node scripts/check-annuaire.mjs",
-    "check:offsite": "node scripts/check-offsite.mjs"
+    "check:offsite": "node scripts/check-offsite.mjs",
+    "check:palette": "node scripts/check-palette.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "check:same-text": "node scripts/check-same-text.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"

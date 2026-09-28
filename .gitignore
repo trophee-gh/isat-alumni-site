@@ -12,3 +12,6 @@ src/_data/*
 *.xlsx
 *.xls
 .env
+
+# Font sources: only the Latin WOFF2 subsets and their OFL.txt are committed (isat-4).
+src/fonts/**/*.ttf
