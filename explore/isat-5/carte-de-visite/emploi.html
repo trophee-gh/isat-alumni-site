@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Variante d'exploration isat-5 — contenu provisoire -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emploi — Association des ingénieurs de l'ISAT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="banner">Variante d'exploration isat-5 — contenu provisoire</div>
+  <div class="intro">
+    <h1>Offres d'emploi et de stage</h1>
+    <p>L'association relaie les offres d'emploi et de stage auprès du réseau des diplômé·e·s de
+      l'ISAT, et sert d'intermédiaire pour les étudiant·e·s en recherche de contacts dans
+      l'industrie.</p>
+    <p>Pour transmettre ou demander une offre, écrivez à :</p>
+    <div class="mailbox">
+      <code id="email">emploi@alumni-isat.fr</code>
+      <button id="copyBtn" type="button">Copier l'adresse</button>
+    </div>
+    <p class="note">707 diplômé·e·s (21 %) se disent prêt·e·s à être recontacté·e·s pour des
+      offres d'emploi <span class="tag">(source : fichier de l'école / archive, à confirmer)</span>.</p>
+    <p class="back">Retour : <a href="index.html">Accueil</a></p>
+  </div>
+  <footer class="foot">Association des ingénieurs de l'ISAT — contenu provisoire, exploration isat-5.</footer>
+  <script>
+    document.getElementById('copyBtn').addEventListener('click', function () {
+      var email = document.getElementById('email').textContent;
+      var btn = document.getElementById('copyBtn');
+      var original = btn.textContent;
+      navigator.clipboard.writeText(email).then(function () {
+        btn.textContent = 'Copié ✓';
+        setTimeout(function () { btn.textContent = original; }, 2000);
+      }, function () {
+        btn.textContent = 'Échec de la copie';
+        setTimeout(function () { btn.textContent = original; }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

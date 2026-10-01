@@ -1,0 +1,305 @@
+<!doctype html>
+<!-- Variante d'exploration isat-5 — contenu provisoire. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISAT-5 / BLUEPRINT — Association des ingénieurs de l'ISAT</title>
+<style>
+  :root {
+    --fond: #061a33; --fond-pan: #0a2446; --cyan: #5fd4ff; --cyan-faible: #2f6a8c;
+    --papier: #e8f6ff; --rouge: #ff6b6b;
+    --mono: ui-monospace, "Courier New", Courier, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--fond); color: var(--papier); font-family: var(--mono);
+    line-height: 1.6; overflow-wrap: anywhere;
+    background-image:
+      linear-gradient(var(--cyan-faible) 1px, transparent 1px),
+      linear-gradient(90deg, var(--cyan-faible) 1px, transparent 1px);
+    background-size: 28px 28px; background-attachment: local;
+  }
+  .cadre { max-width: 52rem; margin: 0 auto; padding: 0 1rem; }
+  a { color: var(--cyan); }
+  .banniere {
+    background: var(--fond-pan); color: var(--cyan); text-align: center; font-size: .75rem;
+    padding: .4rem 1rem; border-bottom: 1px solid var(--cyan-faible); letter-spacing: .04em;
+  }
+
+  nav.plan {
+    position: sticky; top: 0; z-index: 5; background: rgba(6,26,51,.95);
+    border-bottom: 2px solid var(--cyan); backdrop-filter: blur(2px);
+  }
+  nav.plan ul {
+    list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap;
+    gap: 0 .25rem; max-width: 52rem; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem;
+  }
+  nav.plan a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 .75rem;
+    text-decoration: none; text-transform: uppercase; font-size: .78rem; letter-spacing: .06em;
+    border-right: 1px solid var(--cyan-faible);
+  }
+  nav.plan li:last-child a { border-right: none; }
+  nav.plan a:hover { background: var(--fond-pan); }
+
+  header.hors-texte { padding: 3rem 0 1rem; }
+  h1.titre-general {
+    font-family: var(--mono); font-size: 1.6rem; letter-spacing: .03em; color: var(--cyan);
+    border: 1px solid var(--cyan); padding: 1rem; display: inline-block; margin: 0;
+  }
+  .sous-titre { font-size: .85rem; color: var(--cyan-faible); margin-top: .75rem; text-transform: uppercase; letter-spacing: .08em; }
+
+  section { padding: 2.5rem 0; border-top: 1px dashed var(--cyan-faible); }
+  section:first-of-type { border-top: none; }
+  h2.repere {
+    font-size: 1rem; text-transform: uppercase; letter-spacing: .1em; color: var(--cyan);
+    display: flex; align-items: center; gap: .6rem; margin: 0 0 1.25rem;
+  }
+  h2.repere::before { content: ""; width: 10px; height: 10px; border: 1px solid var(--cyan); transform: rotate(45deg); flex: none; }
+  p { max-width: 42rem; color: var(--papier); }
+  .legende { font-size: .8rem; color: var(--cyan-faible); }
+  .non-verifie { color: var(--rouge); font-style: normal; }
+  .lorem { color: var(--cyan-faible); font-style: italic; }
+
+  .dim { display: flex; align-items: center; gap: .75rem; margin: 1rem 0; flex-wrap: wrap; }
+  .dim-trait { flex: 0 0 2.25rem; height: 1px; background: var(--cyan); position: relative; }
+  .dim-trait::before, .dim-trait::after { content: ""; position: absolute; top: -5px; width: 1px; height: 11px; background: var(--cyan); }
+  .dim-trait::before { left: 0; } .dim-trait::after { right: 0; }
+  .dim-valeur { font-size: 1.3rem; font-weight: 700; color: var(--cyan); white-space: nowrap; }
+  .dim-libelle { font-size: .82rem; color: var(--papier); }
+  .dim-libelle .non-verifie { font-size: .78rem; }
+
+  ul.liste-technique { list-style: none; padding: 0; margin: 0 0 1rem; }
+  ul.liste-technique li { padding: .35rem 0 .35rem 1.25rem; position: relative; }
+  ul.liste-technique li::before { content: "▸"; position: absolute; left: 0; color: var(--cyan); }
+
+  table.repartition { width: 100%; border-collapse: collapse; font-size: .85rem; margin: 1rem 0; }
+  table.repartition caption { text-align: left; font-size: .78rem; color: var(--cyan-faible); margin-bottom: .4rem; }
+  table.repartition th, table.repartition td { border: 1px solid var(--cyan-faible); padding: .4rem .6rem; text-align: left; }
+  table.repartition th { color: var(--cyan); }
+
+  .adresse-bloc {
+    border: 1px solid var(--cyan); padding: 1rem; max-width: 30rem; display: flex; flex-wrap: wrap;
+    align-items: center; gap: .75rem; background: rgba(95,212,255,.06);
+  }
+  .adresse-bloc code { font-size: 1.05rem; color: var(--cyan); }
+  button.bouton, a.bouton {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+    padding: 0 1rem; background: transparent; border: 1px solid var(--cyan); color: var(--cyan);
+    font-family: var(--mono); font-size: .9rem; text-decoration: none; cursor: pointer; text-transform: uppercase; letter-spacing: .04em;
+  }
+  button.bouton:hover, a.bouton:hover { background: var(--cyan); color: var(--fond); }
+  #etat-copie { display: block; margin-top: .5rem; font-size: .8rem; color: var(--cyan); min-height: 1.2em; }
+
+  ul.liens-plan { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .75rem; max-width: 24rem; }
+  ul.liens-plan a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 .9rem; border: 1px solid var(--cyan-faible);
+    text-decoration: none; justify-content: space-between; gap: .5rem;
+  }
+  ul.liens-plan a:hover { border-color: var(--cyan); }
+  ul.liens-plan small { color: var(--rouge); font-size: .75rem; }
+
+  .cartouche {
+    position: fixed; right: 1rem; bottom: 1rem; width: 15rem; background: var(--fond-pan);
+    border: 1px solid var(--cyan); font-size: .68rem; padding: .6rem .75rem; z-index: 6;
+  }
+  .cartouche .ligne { display: flex; justify-content: space-between; gap: .5rem; border-top: 1px dotted var(--cyan-faible); padding: .18rem 0; }
+  .cartouche .ligne:first-child { border-top: none; }
+  .cartouche .cle { color: var(--cyan-faible); }
+  .cartouche .val { color: var(--cyan); text-align: right; }
+
+  footer.pied-page { border-top: 2px solid var(--cyan); padding: 1.5rem 0 7rem; font-size: .75rem; color: var(--cyan-faible); }
+
+  @media (max-width: 30rem) {
+    h1.titre-general { font-size: 1.15rem; padding: .75rem; }
+    nav.plan a { font-size: .68rem; padding: 0 .5rem; }
+    .cartouche { position: static; width: 100%; margin: 2rem 0 0; }
+    footer.pied-page { padding-bottom: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<p class="banniere">VARIANTE D'EXPLORATION ISAT-5 — CONTENU PROVISOIRE</p>
+
+<nav class="plan" aria-label="Sommaire">
+  <ul>
+    <li><a href="#association">Association</a></li>
+    <li><a href="#ecole">École</a></li>
+    <li><a href="#chiffres">Diplômés en chiffres</a></li>
+    <li><a href="#emploi">Emploi</a></li>
+    <li><a href="#liens">Liens</a></li>
+  </ul>
+</nav>
+
+<div class="cadre">
+  <header class="hors-texte">
+    <h1 class="titre-general">ASSOCIATION DES INGÉNIEURS DE L'ISAT</h1>
+    <p class="sous-titre">Document d'exploration — ech. 1:1 — ind. A</p>
+  </header>
+
+  <section id="association">
+    <h2 class="repere">01 — Association</h2>
+    <p>Activité actuellement au ralenti : peu de bénévoles, association peu connue des étudiant·es,
+    pas de présence sur le campus. La nouvelle direction et ce site visent à relancer le projet.</p>
+    <ul class="liste-technique">
+      <li>Rencontres avec les étudiant·es, au moins une fois par an pour les 4ᵉ et 5ᵉ années</li>
+      <li>Intervenant·es pour les conférences organisées par les enseignant·es</li>
+      <li>Canal privilégié de l'école vers les diplômé·es</li>
+      <li>Relais des offres d'emploi et de stage</li>
+      <li>Mise à jour de l'annuaire des diplômé·es (tâche administrative)</li>
+    </ul>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">6</span>
+      <span class="dim-libelle">personnes dans l'équipe cœur <em class="non-verifie">— source : archive, à confirmer</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">110</span>
+      <span class="dim-libelle">adhérent·es à jour de cotisation <em class="non-verifie">— archive, à confirmer</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">758 / 2544</span>
+      <span class="dim-libelle">en sommeil / jamais adhérent·es <em class="non-verifie">— archive, à confirmer</em></span>
+    </div>
+    <p class="lorem">Lorem ipsum : présentation du conseil d'administration à compléter — rôles <span class="non-verifie">TBD</span>.</p>
+  </section>
+
+  <section id="ecole">
+    <h2 class="repere">02 — École</h2>
+    <p>ISAT, Nevers, fondée en 1991 ; école publique d'ingénieurs au sein de l'Université de
+    Bourgogne (aujourd'hui « Université Bourgogne Europe »). Second site à Auxerre.
+    <span class="non-verifie">Non vérifié.</span></p>
+    <p>Présentée comme « la seule école publique d'ingénieurs spécialisée automobile et transports
+    » en France. <span class="non-verifie">Non vérifié, sources secondaires.</span></p>
+    <ul class="liste-technique">
+      <li>Cycle préparatoire intégré</li>
+      <li>Cycle ingénieur, voie étudiante ou apprentissage</li>
+      <li>Master recherche Mécanique et Ingénierie</li>
+      <li>Master international AESM (enseigné en anglais, depuis 2010)</li>
+      <li>Doctorat — laboratoire DRIVE</li>
+    </ul>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">≈ 820</span>
+      <span class="dim-libelle">étudiant·es <em class="non-verifie">— non vérifié, sources discordantes</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">200+ / an</span>
+      <span class="dim-libelle">ingénieur·es diplômé·es <em class="non-verifie">— non vérifié</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">3000+</span>
+      <span class="dim-libelle">diplômé·es au total <em class="non-verifie">— non vérifié</em></span>
+    </div>
+    <p class="legende">Source ancienne concurrente : 500 étudiant·es, ~100 diplômé·es / an ; 30+
+    partenaires internationaux ; ~40 % d'une promotion part à l'étranger ; 83 % en emploi à 6 mois.
+    <span class="non-verifie">Non vérifié.</span></p>
+    <p>Campus : FabLab, Elles Bougent, Cordée de la Réussite. Vie étudiante : course de caisses à
+    savon à Nevers. <span class="non-verifie">Non vérifié.</span></p>
+  </section>
+
+  <section id="chiffres">
+    <h2 class="repere">03 — Diplômés en chiffres</h2>
+    <p>Promotions 1996–2022, cinq filières, source : fichier de l'école / archive, à confirmer.</p>
+    <table class="repartition">
+      <caption>Répartition par filière</caption>
+      <thead><tr><th>Filière</th><th>Diplômé·es</th></tr></thead>
+      <tbody>
+        <tr><td>ISAT</td><td>2243</td></tr>
+        <tr><td>IRIT</td><td>217</td></tr>
+        <tr><td>AESM</td><td>98</td></tr>
+        <tr><td>Master Meeting</td><td>84</td></tr>
+        <tr><td>GI Auxerre</td><td>30</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>2672</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="legende">Croissance des promotions : 29 (1996) → 70–90 (2005–2011) → 90–122
+    (2012–2019) → 130, 135, 180 (2020–2022). Source : archive, à confirmer.</p>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">2059</span>
+      <span class="dim-libelle">adresses postables, 55 désinscrit·es de tout <em class="non-verifie">— archive, à confirmer</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">46,6 %</span>
+      <span class="dim-libelle">comptes Hivebrite déjà activés, ~150 utilisateur·ices réguliers / an <em class="non-verifie">— archive, à confirmer</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">15 % / 36</span>
+      <span class="dim-libelle">à l'étranger / pays <em class="non-verifie">— archive, 49 % localisés, à confirmer</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">707 (21 %)</span>
+      <span class="dim-libelle">partant·es pour être contacté·es sur des offres d'emploi <em class="non-verifie">— archive, à confirmer</em></span>
+    </div>
+    <div class="dim">
+      <span class="dim-trait" aria-hidden="true"></span>
+      <span class="dim-valeur">327 (9,6 %)</span>
+      <span class="dim-libelle">partant·es pour animer une formation <em class="non-verifie">— archive, à confirmer</em></span>
+    </div>
+    <p class="legende">Secteurs, employeurs, parcours de carrière : <span class="non-verifie">TBD</span>,
+    données trop éparses pour l'instant. Annuaire public aujourd'hui : <span class="non-verifie">0 entrée</span>.</p>
+  </section>
+
+  <section id="emploi">
+    <h2 class="repere">04 — Emploi</h2>
+    <p>L'association relaie les offres d'emploi et de stage. Pas de formulaire : rien n'est envoyé à
+    un autre site (décision 002, clause FE3). L'adresse se lit, se sélectionne et se copie.</p>
+    <div class="adresse-bloc">
+      <code id="valeur-adresse">emploi@alumni-isat.fr</code>
+      <button type="button" class="bouton" id="bouton-copier">Copier l'adresse</button>
+    </div>
+    <span id="etat-copie" role="status" aria-live="polite"></span>
+    <p><a class="bouton" href="mailto:emploi@alumni-isat.fr">Ouvrir un e-mail</a></p>
+  </section>
+
+  <section id="liens">
+    <h2 class="repere">05 — Liens</h2>
+    <ul class="liens-plan">
+      <li><a href="#">LinkedIn <small>lien TBD</small></a></li>
+      <li><a href="#">HelloAsso <small>URL TBD</small></a></li>
+    </ul>
+    <p class="legende">Pas de lien Brevo : la liste de diffusion est gérée côté administratif, ce
+    n'est pas une newsletter publique.</p>
+  </section>
+
+  <footer class="pied-page">
+    <p>Exploration isat-5 — contenu provisoire. Chiffres d'école et d'association non vérifiés ou
+    issus de l'archive, à confirmer avant toute publication. Aucune personne réelle représentée.</p>
+  </footer>
+</div>
+
+<div class="cartouche" aria-hidden="true">
+  <div class="ligne"><span class="cle">DOC</span><span class="val">ISAT-5 / BLUEPRINT</span></div>
+  <div class="ligne"><span class="cle">TITRE</span><span class="val">Asso. ing. ISAT</span></div>
+  <div class="ligne"><span class="cle">ÉCH.</span><span class="val">1:1 (non vérifié)</span></div>
+  <div class="ligne"><span class="cle">IND.</span><span class="val">A — exploration</span></div>
+  <div class="ligne"><span class="cle">DESSIN.</span><span class="val">TBD</span></div>
+</div>
+
+<script>
+  var bouton = document.getElementById('bouton-copier');
+  var etat = document.getElementById('etat-copie');
+  bouton.addEventListener('click', function () {
+    var adresse = document.getElementById('valeur-adresse').textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(adresse).then(function () {
+        etat.textContent = 'ADRESSE COPIÉE : ' + adresse;
+      }, function () {
+        etat.textContent = 'COPIE IMPOSSIBLE — SÉLECTIONNEZ LE TEXTE MANUELLEMENT.';
+      });
+    } else {
+      etat.textContent = 'COPIE NON PRISE EN CHARGE — SÉLECTIONNEZ LE TEXTE MANUELLEMENT.';
+    }
+  });
+</script>
+</body>
+</html>

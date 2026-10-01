@@ -1,0 +1,122 @@
+/* Variante d'exploration isat-5 — contenu provisoire. Carte-annuaire : navy/blanc, ton chaleureux. */
+
+:root {
+  --marine: #0b2545;
+  --marine-clair: #13365f;
+  --blanc: #ffffff;
+  --creme: #fdf6ee;
+  --chaleur: #d9772c;
+  --chaleur-clair: #f3dcc3;
+  --gris-texte: #333d4b;
+  --filet: #d9d2c6;
+  --police-titre: Georgia, "Times New Roman", "Charis SIL", serif;
+  --police-texte: -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+.cache { display: none; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  font-family: var(--police-texte); color: var(--gris-texte); background: var(--creme);
+  line-height: 1.6; overflow-wrap: anywhere;
+}
+.cadre { max-width: 56rem; margin: 0 auto; padding: 0 1rem; width: 100%; }
+
+.banniere {
+  background: #fff3e4; color: #6b4418; border-bottom: 1px solid var(--chaleur-clair);
+  font-family: var(--police-texte); font-size: .8rem; text-align: center; padding: .4rem 1rem;
+}
+
+header.entete { background: var(--marine); color: var(--blanc); border-bottom: 4px solid var(--chaleur); }
+.entete .cadre { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding: 1rem; }
+.marque { color: inherit; text-decoration: none; display: flex; flex-direction: column; min-height: 44px; justify-content: center; }
+.marque-haut { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+.marque-nom { font-family: var(--police-titre); font-size: 1.5rem; font-weight: 700; }
+nav.principale ul { list-style: none; display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: 0; padding: 0; }
+nav.principale a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; font-weight: 600; border-bottom: 2px solid transparent; }
+nav.principale a:hover, nav.principale a[aria-current] { border-bottom-color: var(--chaleur); }
+
+main { flex: 1; }
+.intro { padding: 2rem 0 1rem; }
+.intro h1 { font-family: var(--police-titre); color: var(--marine); font-size: 2rem; margin: 0 0 .5rem; }
+.intro p { max-width: 42rem; }
+.lorem { font-style: italic; color: #6b6355; }
+
+section.carte-section { padding: 1rem 0 2rem; }
+.panneau-filtres {
+  background: var(--blanc); border: 1px solid var(--filet); border-radius: 10px;
+  padding: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+}
+.champ { flex: 1 1 14rem; min-width: 0; }
+.champ label { display: block; font-weight: 700; font-size: .85rem; color: var(--marine); margin-bottom: .3rem; }
+.champ select {
+  width: 100%; min-height: 44px; padding: 0 .6rem; font-size: 1rem; font-family: var(--police-texte);
+  color: var(--gris-texte); background: var(--creme); border: 1px solid var(--filet); border-radius: 6px;
+}
+.champ select:disabled { opacity: .65; }
+.note-champ { display: block; font-size: .75rem; color: #6b6355; margin-top: .3rem; }
+
+.zone-carte {
+  background: var(--marine-clair); border-radius: 14px; padding: 1rem; position: relative;
+}
+.zone-carte svg { width: 100%; height: auto; display: block; }
+.legende-carte { color: var(--blanc); font-size: .75rem; text-align: center; margin-top: .5rem; opacity: .85; }
+.pin-etiquette { fill: var(--blanc); font-size: 9px; font-family: var(--police-texte); }
+.pin-point { fill: var(--chaleur); stroke: var(--blanc); stroke-width: 1.5; }
+.pin-point.estompe { opacity: .25; }
+
+.bande-monde { margin-top: 1rem; background: var(--marine); border: 1px dashed var(--chaleur-clair); border-radius: 10px; padding: .75rem 1rem; color: var(--blanc); }
+.bande-monde h3 { margin: 0 0 .4rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--chaleur-clair); }
+.bande-monde ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.bande-monde li { background: var(--marine-clair); border-radius: 999px; padding: .4rem .75rem; font-size: .8rem; display: inline-flex; align-items: center; min-height: 32px; }
+.bande-monde li[data-promo].cache { display: none; }
+
+.liste-repli { margin-top: 1.5rem; }
+.liste-repli h2 { font-family: var(--police-titre); color: var(--marine); font-size: 1.15rem; margin: 0 0 .25rem; }
+.liste-repli p.aide { font-size: .85rem; color: #6b6355; margin-top: 0; }
+#liste { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--filet); }
+#liste li { border-bottom: 1px solid var(--filet); padding: .75rem 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: center; }
+#liste li.cache { display: none; }
+.badge-fictif { background: var(--chaleur-clair); color: #6b4418; font-size: .7rem; font-weight: 700; border-radius: 999px; padding: .15rem .55rem; white-space: nowrap; }
+.fiche-nom { font-weight: 700; color: var(--marine); }
+.fiche-lien { margin-left: auto; display: inline-flex; align-items: center; min-height: 40px; color: var(--chaleur); text-decoration: none; font-weight: 600; }
+
+.encadre {
+  background: var(--blanc); border-left: 4px solid var(--chaleur); border-radius: 0 10px 10px 0;
+  padding: 1rem 1.25rem; margin: 2rem 0; max-width: 42rem;
+}
+.encadre h2 { margin-top: 0; font-family: var(--police-titre); color: var(--marine); font-size: 1.1rem; }
+
+.bloc-offre { background: var(--blanc); border: 1px solid var(--filet); border-radius: 10px; padding: 1.5rem; max-width: 34rem; }
+.bloc-offre h1 { font-family: var(--police-titre); color: var(--marine); margin-top: 0; }
+.adresse {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; background: var(--creme);
+  border: 1px solid var(--filet); border-radius: 8px; padding: .75rem 1rem; margin: 1rem 0;
+}
+.adresse code { font-size: 1.05rem; word-break: break-word; overflow-wrap: anywhere; }
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px;
+  padding: 0 1.1rem; background: var(--chaleur); color: var(--blanc); border: none; border-radius: 999px;
+  font-weight: 700; font-family: var(--police-texte); font-size: .95rem; cursor: pointer; text-decoration: none;
+}
+.bouton:hover { background: #c3671f; }
+.bouton.secondaire { background: transparent; color: var(--marine); border: 1px solid var(--filet); }
+#etat-copie { display: block; margin-top: .5rem; font-size: .85rem; color: var(--marine); min-height: 1.2em; }
+
+footer.pied { background: var(--marine); color: var(--blanc); margin-top: 2rem; padding: 1.5rem 0 2rem; }
+.pied .boutons { display: flex; flex-direction: column; gap: .75rem; }
+.pied .bouton-pied {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 1rem;
+  border-radius: 8px; border: 1px solid rgba(255,255,255,.3); color: var(--blanc); text-decoration: none;
+  font-weight: 600; text-align: center; flex-wrap: wrap; gap: .3rem;
+}
+.pied .bouton-pied small { font-weight: 400; font-style: italic; opacity: .8; }
+.pied .bouton-pied.vedette { background: var(--chaleur); border-color: var(--chaleur); }
+@media (min-width: 38rem) { .pied .boutons { flex-direction: row; } .pied .bouton-pied { flex: 1; } }
+.pied p.mentions { font-size: .75rem; opacity: .75; max-width: 42rem; margin-top: 1.5rem; }
+
+@media (max-width: 30rem) {
+  .marque-nom { font-size: 1.25rem; }
+  .intro h1 { font-size: 1.6rem; }
+}

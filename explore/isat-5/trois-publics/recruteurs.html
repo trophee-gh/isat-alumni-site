@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Variante d'exploration isat-5 — contenu provisoire -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recruteurs &amp; entreprises — Association des ingénieurs de l'ISAT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="banner">Variante d'exploration isat-5 — contenu provisoire</div>
+  <header class="top">
+    <div class="wrap">
+      <p class="eyebrow">Recruteurs &amp; entreprises</p>
+      <h1>Des ingénieur·e·s prêt·e·s pour l'automobile et les transports</h1>
+      <p>2672 diplômé·e·s entre 1996 et 2022 <span class="tag">(source : fichier de l'école /
+        archive, à confirmer)</span>, formé·e·s dans une école présentée comme la seule école
+        publique d'ingénieurs spécialisée automobile et transports en France
+        <span class="tag">(fait école, non vérifié)</span>.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <section>
+      <h2>Pourquoi recruter un·e ISAT</h2>
+      <p>707 diplômé·e·s (21 %) se disent prêt·e·s à être recontacté·e·s pour des offres d'emploi
+        <span class="tag">(source : fichier de l'école / archive, à confirmer)</span>. L'association
+        relaie les offres d'emploi et de stage à l'ensemble de son réseau.</p>
+      <div class="placeholder-img">Photo à venir — diplômé·e en poste</div>
+    </section>
+    <section>
+      <h2>Transmettre une offre</h2>
+      <p>Pour publier ou transmettre une offre d'emploi ou de stage, écrivez à :</p>
+      <div class="mailbox">
+        <code id="email">emploi@alumni-isat.fr</code>
+        <button id="copyBtn" class="btn" type="button">Copier l'adresse</button>
+      </div>
+    </section>
+    <p class="breadcrumb">Retour : <a href="index.html">Accueil</a></p>
+  </main>
+  <footer class="foot">Association des ingénieurs de l'ISAT — contenu provisoire, exploration isat-5.</footer>
+  <script>
+    document.getElementById('copyBtn').addEventListener('click', function () {
+      var email = document.getElementById('email').textContent;
+      var btn = document.getElementById('copyBtn');
+      var original = btn.textContent;
+      navigator.clipboard.writeText(email).then(function () {
+        btn.textContent = 'Copié ✓';
+        setTimeout(function () { btn.textContent = original; }, 2000);
+      }, function () {
+        btn.textContent = 'Échec de la copie';
+        setTimeout(function () { btn.textContent = original; }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

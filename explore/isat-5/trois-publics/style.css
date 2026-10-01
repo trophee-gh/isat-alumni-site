@@ -1,0 +1,221 @@
+/* Variante d'exploration isat-5 — contenu provisoire */
+:root {
+  --navy: #13263f;
+  --navy-soft: #1d3a5f;
+  --cream: #fff8ef;
+  --paper: #ffffff;
+  --accent: #ff6a3d;
+  --accent-dark: #d6501f;
+  --ink: #16202c;
+  --muted: #5c6b7a;
+  --border: #e7ddcf;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.banner {
+  background: var(--navy);
+  color: var(--accent);
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.02em;
+}
+
+header.top {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 2.2rem 1.25rem 2.6rem;
+}
+
+.wrap {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+header.top .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin: 0 0 0.5rem 0;
+}
+
+header.top h1 {
+  font-size: clamp(1.7rem, 7vw, 2.6rem);
+  margin: 0 0 0.6rem 0;
+  line-height: 1.15;
+}
+
+header.top p {
+  max-width: 48ch;
+  overflow-wrap: anywhere;
+  color: #dbe6f0;
+}
+
+main {
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: normal;
+}
+
+/* home: three doors */
+.doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.door-card {
+  flex: 1 1 220px;
+  min-width: 0;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.25rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.door-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+
+.door-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.btn:hover, .btn:focus { background: var(--accent-dark); }
+
+.btn.outline {
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+.btn.outline:hover, .btn.outline:focus { background: var(--navy); color: #fff; }
+
+/* content sections */
+section {
+  margin-top: 2rem;
+}
+
+section h2 {
+  color: var(--navy);
+  font-size: 1.3rem;
+}
+
+.placeholder-img {
+  background: repeating-linear-gradient(135deg, #f0e8da, #f0e8da 10px, #e7ddcf 10px, #e7ddcf 20px);
+  border: 1px dashed #b7a98c;
+  border-radius: 8px;
+  color: var(--muted);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.mailbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem;
+  margin: 1rem 0;
+  min-width: 0;
+}
+
+.mailbox code {
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: 0.95rem;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.card-quote {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+p.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+p.breadcrumb a { color: var(--navy); }
+
+footer.foot {
+  background: var(--navy);
+  color: #c9d6e2;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 1.25rem;
+}
+
+footer.foot a { color: var(--accent); }

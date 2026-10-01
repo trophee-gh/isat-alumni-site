@@ -1,0 +1,135 @@
+/* isat-5 — ecole-institutionnel: navy/white, sober, four-colour accent strip */
+:root{
+  --navy:#0b2345;
+  --navy-2:#15345e;
+  --steel:#4c6a8c;
+  --silver:#c7cdd6;
+  --amber:#c98a2c;
+  --paper:#ffffff;
+  --ink:#1b2430;
+  --line:#dbe0e6;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.55;
+}
+h1,h2,h3{
+  font-family:Georgia,"Times New Roman",Times,serif;
+  color:var(--navy);
+  line-height:1.2;
+}
+a{color:var(--navy-2);}
+img,svg{max-width:100%;}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+.explore-banner{
+  background:#fff6e6;
+  color:#6b4a10;
+  font-size:.82rem;
+  text-align:center;
+  padding:6px 10px;
+  border-bottom:1px solid #e9d4a6;
+}
+
+.accent-strip{display:flex;height:6px;}
+.accent-strip span{flex:1;}
+.accent-strip .c1{background:var(--navy);}
+.accent-strip .c2{background:var(--steel);}
+.accent-strip .c3{background:var(--silver);}
+.accent-strip .c4{background:var(--amber);}
+
+header.site{background:var(--navy);color:#fff;}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;padding-bottom:14px;}
+.brand{font-family:Georgia,serif;font-weight:bold;font-size:1.15rem;color:#fff;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;}
+nav.main{display:flex;flex-wrap:wrap;gap:4px;}
+nav.main a{
+  color:#eaf0f8;
+  text-decoration:none;
+  font-size:.92rem;
+  padding:0 12px;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  border-radius:3px;
+}
+nav.main a:hover,nav.main a[aria-current="page"]{background:var(--navy-2);}
+
+main{padding:28px 0 48px;}
+.hero{padding:10px 0 20px;border-bottom:1px solid var(--line);margin-bottom:24px;}
+.hero h1{font-size:1.9rem;margin:0 0 10px;}
+.hero p.lead{font-size:1.08rem;max-width:62ch;}
+
+.cards{display:flex;flex-wrap:wrap;gap:16px;margin:24px 0;}
+.card{flex:1 1 240px;min-width:0;border:1px solid var(--line);border-top:4px solid var(--amber);padding:16px 18px;background:#fbfbfc;}
+.card h3{font-size:1.05rem;margin-top:0;}
+
+.tag{
+  display:inline-block;
+  font-size:.72rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  padding:2px 8px;
+  border-radius:3px;
+  margin:2px 6px 2px 0;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.tag.unverified{background:#fdeaea;color:#8a2323;border:1px solid #f1c6c6;}
+.tag.archive{background:#eaf1fb;color:#1c3f6b;border:1px solid #c7d8ef;}
+
+table.figures{width:100%;border-collapse:collapse;margin:14px 0;font-size:.95rem;}
+table.figures th,table.figures td{border:1px solid var(--line);padding:8px 10px;text-align:left;}
+table.figures th{background:#f1f4f8;}
+
+.placeholder-box{
+  background:#eef0f3;
+  border:1px dashed #b7bec9;
+  color:#5a6472;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:.85rem;
+  min-height:120px;
+  padding:10px;
+}
+.team-grid{display:flex;flex-wrap:wrap;gap:16px;margin:18px 0;}
+.team-card{flex:1 1 160px;min-width:0;text-align:center;}
+.team-card .placeholder-box{min-height:100px;margin-bottom:8px;}
+
+.lorem{color:#4a5260;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:0 18px;
+  background:var(--navy);color:#fff;text-decoration:none;
+  border:1px solid var(--navy);border-radius:3px;font-size:.95rem;cursor:pointer;
+}
+.btn:hover{background:var(--navy-2);}
+.btn.secondary{background:#fff;color:var(--navy);}
+
+.mailbox{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  border:1px solid var(--line);padding:14px 16px;background:#fbfbfc;margin:18px 0;
+}
+.mailbox code{font-size:1.05rem;overflow-wrap:anywhere;min-width:0;}
+.copy-feedback{font-size:.85rem;color:var(--amber);min-height:20px;}
+
+footer.site{background:#f1f4f8;border-top:1px solid var(--line);margin-top:40px;}
+footer.site .wrap{padding:22px 20px 26px;}
+footer.site nav{display:flex;flex-wrap:wrap;gap:4px 10px;margin-bottom:10px;}
+footer.site nav a{
+  min-height:40px;display:inline-flex;align-items:center;
+  text-decoration:none;color:var(--navy-2);font-size:.9rem;
+}
+footer.site p{font-size:.8rem;color:#5a6472;}
+
+@media (max-width:480px){
+  .hero h1{font-size:1.5rem;}
+  nav.main{gap:0;}
+}

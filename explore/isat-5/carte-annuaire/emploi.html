@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- Variante d'exploration isat-5 — contenu provisoire. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offres d'emploi (exploration) — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="banniere">Variante d'exploration isat-5 — contenu provisoire, aucune donnée réelle.</p>
+
+<header class="entete">
+  <div class="cadre">
+    <a class="marque" href="index.html">
+      <span class="marque-haut">Association des ingénieurs de</span>
+      <span class="marque-nom">l'ISAT</span>
+    </a>
+    <nav class="principale" aria-label="Principale">
+      <ul>
+        <li><a href="index.html">Accueil — annuaire</a></li>
+        <li><a href="emploi.html" aria-current="page">Offres d'emploi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="cadre" style="padding:2rem 0 3rem;">
+    <div class="bloc-offre">
+      <h1>Proposer une offre d'emploi ou de stage</h1>
+      <p>L'association relaie les offres d'emploi et de stage auprès des diplômé·es. Pour transmettre
+      une offre, écrivez directement à l'adresse ci-dessous.</p>
+      <div class="adresse">
+        <code id="valeur-adresse">emploi@alumni-isat.fr</code>
+        <button type="button" class="bouton" id="bouton-copier">Copier l'adresse</button>
+      </div>
+      <span id="etat-copie" role="status" aria-live="polite"></span>
+      <p><a class="bouton secondaire" href="mailto:emploi@alumni-isat.fr">Ouvrir un e-mail</a></p>
+      <p class="lorem">Lorem ipsum : un mot sur le type d'offres recherchées (stage, alternance, premier
+      emploi, mi-carrière) viendra compléter cette page.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="pied">
+  <div class="cadre">
+    <div class="boutons">
+      <a class="bouton-pied vedette" href="index.html">Retour à l'annuaire</a>
+      <a class="bouton-pied" href="#">HelloAsso <small>(lien TBD)</small></a>
+      <a class="bouton-pied" href="#">LinkedIn <small>(lien TBD)</small></a>
+    </div>
+    <p class="mentions">Exploration isat-5 — contenu provisoire. Pas de formulaire : aucune donnée
+    n'est envoyée à un autre site (décision 002, clause FE3).</p>
+  </div>
+</footer>
+
+<script>
+  var bouton = document.getElementById('bouton-copier');
+  var etat = document.getElementById('etat-copie');
+  bouton.addEventListener('click', function () {
+    var adresse = document.getElementById('valeur-adresse').textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(adresse).then(function () {
+        etat.textContent = 'Adresse copiée : ' + adresse;
+      }, function () {
+        etat.textContent = 'Copie impossible ici — sélectionnez le texte manuellement.';
+      });
+    } else {
+      etat.textContent = 'Copie non prise en charge ici — sélectionnez le texte manuellement.';
+    }
+  });
+</script>
+</body>
+</html>
