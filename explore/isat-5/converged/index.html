@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variantes convergées · isat-5</title>
+<link rel="icon" href="tribune/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Archivo";src:url(tribune/fonts/Archivo.woff2) format("woff2");font-weight:100 900}
+:root{--paper:#f4f5f2;--line:#dfe1dc;--ink:#0d1b2a;--muted:#566070}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 "Archivo",system-ui,sans-serif;padding:40px 16px 64px}
+.wrap{max-width:1160px;margin:0 auto}h1{font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:-.02em;line-height:1.05;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin-top:32px}
+.bento>*,.grid-2>*,.grid-3>*,.grid-4>*,.split>*{min-width:0}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.stack{display:flex;flex-direction:column;gap:12px}
+.dl{display:grid;grid-template-columns:90px 1fr;gap:6px 12px;font-size:15px;margin:0}.dl dt{font:600 11px/1.9 ui-monospace,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.dl dd{margin:0;overflow-wrap:anywhere}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:0}.btn{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;background:var(--paper)}
+.btn:hover{border-color:var(--ink)}.lead{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.common{margin-top:24px}.common ul{margin:8px 0 0;padding-left:20px}
+@media (max-width:400px){.dl{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<p style="font:600 12px ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">isat-5 · converged · exploration, pas pour fusion</p>
+<h1>Trois variantes convergées</h1>
+<p class="lead">Construites depuis le brief, le retour de Virgil (synthèse et réponses de clôture), la recherche de design et le logo du tour 2. Même structure de pages, trois partis pris de couleur, de fond et de héros.</p>
+<div class="card common"><strong>Commun aux trois</strong><ul>
+<li>Fond clair teinté, cartes blanches arrondies, en-tête collant, barre flottante gauche/droite en bas (Emploi · LinkedIn, HelloAsso).</li>
+<li>Chaque page s'ouvre sur un héros-hub dont les boutons mènent à ses sections ; blocs variés : bento de chiffres, portraits, citation, frise avec photos, carte, bandeau d'appel.</li>
+<li>Carte du monde en points dessinée à la main (SVG en ligne, aucune tuile, aucune bibliothèque) ; section sans contrôles sur l'accueil, page Annuaire avec filtre promo et vues rapides. Effectifs par pays : TBD.</li>
+<li>Emploi : faits d'abord, puis l'adresse avec bouton Copier, puis la maquette de formulaire Netlify (rien n'est envoyé).</li>
+<li>LinkedIn et HelloAsso en cartes sortantes (↗, domaine affiché, URL TBD), sans logo tiers ni intégration. Aucun lien Brevo.</li>
+<li>Police : Archivo auto-hébergée (déjà dans le dépôt) ; Inter / Space Grotesk / JetBrains Mono non disponibles hors réseau. Chiffres en mono système.</li>
+</ul></div>
+<div class="grid"><article class="card stack">
+<div style="background:var(--paper);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:center;min-height:90px"><img src="tribune/logo.svg" alt="" style="height:34px;width:auto;max-width:100%;object-fit:contain"></div>
+<h2 style="font-size:2rem;margin:0">Tribune</h2>
+<p>Les couleurs officieuses des équipes sportives de l'école : bleu pour l'encre, jaune comme signal. Fond légèrement teinté sous une grille carrée très fine ; héros sur aplat bleu, chiffres en mono façon écran de chronométrage.</p>
+<dl class="dl">
+<dt>Palette</dt><dd>#f4f5f2 fond · #0d1b2a encre · #1e4a9c accent · #f2b705 signal</dd>
+<dt>Logo</dt><dd>Lockup (tuile « al » + mot-symbole tout bleu) ; favicon : tuile « al » bleue/jaune</dd>
+<dt>Type</dt><dd>Archivo (variable, auto-hébergée), mono système pour chiffres et étiquettes</dd>
+<dt>Fond</dt><dd>grille carrée 32 px à 4,5 %</dd>
+<dt>Héros</dt><dd>aplat bleu plein, boutons-ancres en verre</dd>
+<dt>Répond à</dt><dd>carte-monde (cartes, gros caractères) sans le fond sombre ; bleu et jaune des équipes ; grille industrielle très légère</dd>
+</dl>
+<p class="links"><a class="btn" href="tribune/index.html">Accueil</a> <a class="btn" href="tribune/qui-sommes-nous.html">Qui sommes-nous</a> <a class="btn" href="tribune/ingenieurs.html">Les ingénieurs ISAT</a> <a class="btn" href="tribune/annuaire.html">Annuaire</a> <a class="btn" href="tribune/emploi.html">Emploi</a> <a class="btn" href="tribune/en.html">EN</a></p>
+</article><article class="card stack">
+<div style="background:var(--paper);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:center;min-height:90px"><img src="trait/logo.svg" alt="" style="height:34px;width:auto;max-width:100%;object-fit:contain"></div>
+<h2 style="font-size:2rem;margin:0">Trait</h2>
+<p>Le style suisse de la référence de Virgil, porté par le logo cramoisi : papier #F4F3EF, encre #111, un seul accent rouge. Filets verticaux qui cadrent la largeur du contenu, sections numérotées « 01 / 05 », cadres de dessin technique à coins marqués.</p>
+<dl class="dl">
+<dt>Palette</dt><dd>#f4f3ef fond · #111 encre · #a10d2e accent · #a10d2e signal</dd>
+<dt>Logo</dt><dd>Mot-symbole cramoisi ; favicon : tuile « al » cramoisie</dd>
+<dt>Type</dt><dd>Archivo (variable, auto-hébergée), mono système pour chiffres et étiquettes</dd>
+<dt>Fond</dt><dd>deux filets verticaux qui cadrent la largeur du contenu</dd>
+<dt>Héros</dt><dd>carte blanche dans un cadre de dessin technique, cartouche « Fig. 01 »</dd>
+<dt>Répond à</dt><dd>Suisse « plus soigné » ; filets façon kairosprotect ; échelle technique sans kitsch</dd>
+</dl>
+<p class="links"><a class="btn" href="trait/index.html">Accueil</a> <a class="btn" href="trait/qui-sommes-nous.html">Qui sommes-nous</a> <a class="btn" href="trait/ingenieurs.html">Les ingénieurs ISAT</a> <a class="btn" href="trait/annuaire.html">Annuaire</a> <a class="btn" href="trait/emploi.html">Emploi</a> <a class="btn" href="trait/en.html">EN</a></p>
+</article><article class="card stack">
+<div style="background:var(--paper);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:center;min-height:90px"><img src="horizon/logo.svg" alt="" style="height:34px;width:auto;max-width:100%;object-fit:contain"></div>
+<h2 style="font-size:2rem;margin:0">Horizon</h2>
+<p>L'écho de l'école : marine et blanc sur un fond teinté de bleu, le plus calme et le plus facile à entretenir. Héros en mosaïque de photos, cartes douces, accents en teintes color-mix plutôt qu'en aplats.</p>
+<dl class="dl">
+<dt>Palette</dt><dd>#eef3f8 fond · #14243d encre · #1e4a9c accent · #f2b705 signal</dd>
+<dt>Logo</dt><dd>Lockup (tuile « al » + mot-symbole tout bleu) ; favicon : tuile « al » bleue/jaune</dd>
+<dt>Type</dt><dd>Archivo (variable, auto-hébergée), mono système pour chiffres et étiquettes</dd>
+<dt>Fond</dt><dd>aplat teinté bleu, sans motif ; ombres douces</dd>
+<dt>Héros</dt><dd>carte en dégradé + mosaïque de trois photos</dd>
+<dt>Répond à</dt><dd>écho de la charte de l'école ; « plus de médias » ; le plus simple à entretenir</dd>
+</dl>
+<p class="links"><a class="btn" href="horizon/index.html">Accueil</a> <a class="btn" href="horizon/qui-sommes-nous.html">Qui sommes-nous</a> <a class="btn" href="horizon/ingenieurs.html">Les ingénieurs ISAT</a> <a class="btn" href="horizon/annuaire.html">Annuaire</a> <a class="btn" href="horizon/emploi.html">Emploi</a> <a class="btn" href="horizon/en.html">EN</a></p>
+</article></div>
+</div></body></html>
