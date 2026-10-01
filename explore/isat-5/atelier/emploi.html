@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emploi — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="explore-banner">Variante d'exploration isat-5 — contenu provisoire</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="plate">ISAT</span> Alumni</a>
+    <nav class="inpage" aria-label="Navigation de la page">
+      <a href="#contact">Contact</a>
+      <a href="#relais">Ce qu'on relaie</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section id="contact" class="hero pegboard">
+      <h1>Une offre à transmettre ?</h1>
+      <p class="lead">Une adresse à lire, à copier, à poser sur l'établi — sans formulaire, sans
+      tiers.</p>
+      <div class="mailbox">
+        <code id="email-address" class="mono">emploi@alumni-isat.fr</code>
+        <button type="button" class="btn" id="copy-btn">Copier l'adresse</button>
+      </div>
+      <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+    </section>
+
+    <section id="relais">
+      <div class="kicker"><span class="plate mono">—</span><h2>Ce que l'association relaie</h2></div>
+      <ul>
+        <li>offres d'emploi, tous niveaux d'expérience ;</li>
+        <li>offres de stage et d'alternance ;</li>
+        <li>appels à intervenants pour conférences et rencontres étudiantes.</li>
+      </ul>
+      <p class="lorem">Lorem ipsum dolor sit amet — des exemples de parcours viendront montrer, une
+      fois les témoignages recueillis, pourquoi un ingénieur ISAT a sa place dans une équipe.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <nav class="pages" aria-label="Navigation entre les pages">
+      <a href="index.html">Accueil</a>
+      <a href="savoir-faire.html">Savoir-faire</a>
+      <a href="emploi.html">Emploi</a>
+    </nav>
+    <nav class="outbound" aria-label="Liens externes">
+      <a href="#" aria-label="LinkedIn de l'association, lien à venir">LinkedIn (lien TBD)</a>
+      <a href="#" aria-label="HelloAsso, lien à venir">HelloAsso (lien TBD)</a>
+    </nav>
+    <p>Association des ingénieurs de l'ISAT — contenu d'exploration, non définitif.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy-btn');
+  var fb = document.getElementById('copy-feedback');
+  var addr = document.getElementById('email-address').textContent;
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function(){
+        fb.textContent = 'Adresse copiée.';
+      }, function(){
+        fb.textContent = 'Copie impossible : sélectionnez le texte manuellement.';
+      });
+    } else {
+      fb.textContent = 'Copie impossible : sélectionnez le texte manuellement.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

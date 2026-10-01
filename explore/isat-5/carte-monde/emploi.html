@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offres d'emploi — ISAT Alumni (exploration isat-5)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="banner">Variante d'exploration isat-5 — contenu provisoire</div>
+<header class="site">
+  <span class="brand">ISAT ALUMNI</span>
+  <nav>
+    <a href="index.html#carte">La carte</a>
+    <a href="index.html#association">L'association</a>
+    <a href="index.html#liens">Rejoindre</a>
+    <a href="emploi.html">Offres d'emploi</a>
+  </nav>
+</header>
+
+<main>
+<section>
+  <p class="kicker">offres d'emploi</p>
+  <h1>Relayer un poste, un stage</h1>
+  <p class="lead">L'association relaie les offres d'emploi et de stage reçues vers les anciens.
+    Écrivez à l'adresse ci-dessous : pas de formulaire, juste une adresse à copier.</p>
+
+  <div class="panel">
+    <h3>L'adresse de l'association</h3>
+    <div class="copybar">
+      <code class="addr">emploi@alumni-isat.fr</code>
+      <button class="copy" type="button" onclick="copyAddr()">Copier l'adresse</button>
+    </div>
+    <p id="copy-status" class="status" role="status" aria-live="polite"></p>
+    <p><a class="tile-cta" href="mailto:emploi@alumni-isat.fr">Ouvrir un e-mail</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <p>Association des ingénieurs de l'ISAT — exploration isat-5, variante carte-monde.</p>
+  <p><a href="index.html">Retour à l'accueil</a></p>
+</footer>
+
+<script>
+function copyAddr() {
+  var addr = "emploi@alumni-isat.fr";
+  var status = document.getElementById("copy-status");
+  function done(ok) {
+    status.textContent = ok ? "Adresse copiée." : "Copie impossible — sélectionnez le texte manuellement.";
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(addr).then(function () { done(true); }, function () { done(false); });
+  } else {
+    done(false);
+  }
+}
+</script>
+</body>
+</html>
