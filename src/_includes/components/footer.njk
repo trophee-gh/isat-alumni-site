@@ -3,7 +3,7 @@
 <div class="cols">
 <div><p><strong>Association des ingénieurs de l'ISAT</strong></p><p class="muted">Le réseau des diplômés de l'Institut supérieur de l'automobile et des transports, Nevers. <span class="unv">nom de l'école à vérifier</span></p></div>
 <ul>{% for p in nav %}{% if loop.index <= 3 %}<li><a href="{{ p.url }}">{{ p.label }}</a></li>{% endif %}{% endfor %}</ul>
-<ul>{% for p in nav %}{% if loop.index > 3 %}<li><a href="{{ p.url }}"{% if p.lang %} lang="{{ p.lang }}"{% endif %}>{{ p.label }}</a></li>{% endif %}{% endfor %}<li><a href="https://isat.fr/" rel="noopener">isat.fr {% include "icons/arrow.njk" %}</a></li></ul>
+<ul>{% for p in nav %}{% if loop.index > 3 %}<li><a href="{{ p.url }}"{% if p.lang %} lang="{{ p.lang }}"{% endif %}>{{ p.label }}</a></li>{% endif %}{% endfor %}<li><a href="https://isat.fr/" target="_blank" rel="noopener">isat.fr {% include "icons/arrow.njk" %}</a></li></ul>
 </div>
 <p class="small">Contenus provisoires (lorem ipsum, TBD) · aucune donnée personnelle · <a href="/components/">Composants</a></p>
 </div></footer>
