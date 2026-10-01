@@ -14,7 +14,7 @@ title: Qui sommes-nous · isat alumni
 <section class="sec" id="missions"><div class="wrap">
 {%- set sh = {n: "01 / 04", eyebrow: "Missions", title: "Cinq missions, simples et utiles.", lead: "Toutes modestes pour l'instant ; le site et la nouvelle direction doivent leur redonner de l'élan."} %}
 {% include "components/section-head.njk" %}
-{%- set figures = copy.missions %}
+{%- set figures = copy.missions %}{%- set figuresSlide = true %}
 {% include "components/figures.njk" %}
 <div class="split" style="margin-top:16px">
 <div class="ph tall" role="img" aria-label="Photo à venir : rencontre avec les étudiants"><span>Photo · rencontre avec les étudiants</span></div>

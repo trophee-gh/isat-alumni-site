@@ -1,5 +1,6 @@
-{#- Figures (chiffres) as a bento. Var: figures [{cls, label, figure, small, title, text, bars[{k,w,v}]}]. -#}
-<div class="bento">
+{#- Figures (chiffres) as a bento. Vars: figures [{cls, label, figure, small, title, text, bars[{k,w,v}]}],
+    figuresSlide (true: a slider on phones, as for the missions; the chiffres stay a stack). -#}
+<div class="bento{% if figuresSlide %} slide-s{% endif %}">
 {%- for c in figures %}
 <div class="card {{ c.cls }}"><div class="count">{{ c.label }}</div>
 {%- if c.figure %}<div class="figure">{{ c.figure }}{% if c.small %}<small>{{ c.small }}</small>{% endif %}</div>{% endif %}

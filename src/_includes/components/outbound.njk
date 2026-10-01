@@ -11,6 +11,6 @@
   {kind: "HelloAsso · adhésion annuelle", lead: "Adhérer soutient les rencontres avec les étudiants et l'annuaire. Paiement par HelloAsso ; montant <span class='tbd'>TBD</span>", go: "Adhérer", dom: "helloasso.com/…"}
 ] -%}
 {%- endif %}
-<div class="grid-2 slide-s">
+<div class="grid-2">
 {%- for c in cards %}<a class="card out" href="#" rel="noopener"><div class="eyebrow">{{ c.kind }}</div><div class="glyph">{% include "icons/arrow.njk" %}</div><p class="lead m0">{{ c.lead | safe }}</p><div class="go">{{ c.go }} {% include "icons/arrow.njk" %}</div><div class="dom">{{ c.dom }} <span class="tbd">URL TBD</span></div></a>{% endfor %}
 </div>

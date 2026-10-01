@@ -32,7 +32,12 @@
   document.querySelectorAll("[data-copy]").forEach(function (b) {
     b.addEventListener("click", function () {
       var t = b.getAttribute("data-copy"), o = document.getElementById(b.getAttribute("aria-controls"));
-      function ok() { if (o) o.textContent = o.getAttribute("data-ok"); }
+      function ok() {
+        if (o) o.textContent = o.getAttribute("data-ok");
+        if (!b.dataset.label) b.dataset.label = b.textContent;
+        b.textContent = "✓ Copiée"; b.classList.add("is-done");
+        clearTimeout(b._t); b._t = setTimeout(function () { b.textContent = b.dataset.label; b.classList.remove("is-done"); }, 2000);
+      }
       function fb() {
         var a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select();
         try { document.execCommand("copy"); ok(); } catch (e) {} a.remove();

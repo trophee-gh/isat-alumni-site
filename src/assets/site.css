@@ -221,7 +221,10 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 /* ---------- copyable address ---------- */
 .addr{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 12px 12px 20px;color:var(--ink)}
 .addr code{font:600 clamp(1.05rem,3.6vw,1.5rem) var(--mono);letter-spacing:-.02em;flex:1;min-width:0;overflow-wrap:anywhere}
+/* The confirmation is read out (live region) but shown in the button itself. */
 .copied{font:500 12px var(--mono);color:var(--accent);min-height:1em;margin:0}
+.copied.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.addr .btn.is-done{background:var(--ink);border-color:var(--ink)}
 .ticks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .ticks li{display:grid;grid-template-columns:28px 1fr;gap:8px}
 .ticks li::before{content:"";width:18px;height:18px;margin-top:4px;border-radius:6px;background:var(--tint-2);box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 9px var(--accent)}
@@ -233,7 +236,7 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary .n{font:500 12px var(--mono);color:var(--muted)}
 .faq summary .pm{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);position:relative;background:var(--surface);transition:transform .2s,background .2s}
-.faq summary .pm::before,.faq summary .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
+.faq summary .pm::before,.faq summary .pm::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:var(--ink);transform:translate(-50%,-50%)}
 .faq summary .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
 .faq details[open] .pm{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
 .faq details[open] .pm::before,.faq details[open] .pm::after{background:var(--accent-ink)}
