@@ -1,4 +1,4 @@
 {#- Portrait cards. Vars: portraits [{chip, name, text}], portraitCols (3|4). -#}
-<div class="grid-{{ portraitCols or 3 }}">
+<div class="grid-{{ portraitCols or 3 }} slide-s">
 {%- for p in portraits %}<article class="card portrait"><div class="ph" role="img" aria-label="Photo à venir : portrait"><span>Photo · portrait</span></div><span class="chip">{{ p.chip }}</span><h3>{{ p.name }}</h3><p class="muted m0">{{ p.text | safe }}</p></article>{% endfor %}
 </div>

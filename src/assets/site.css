@@ -304,6 +304,11 @@ html.js:not(.scroll-down) .floatbar:not(.is-static),html.foot-in .floatbar:not(.
 /* Phones: card rows become sideways sliders instead of long vertical stacks (isat-7). */
 @media (max-width:600px){
   .slide-s{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1*var(--gut));margin-right:calc(-1*var(--gut));padding:0 var(--gut) 6px;scroll-padding:0 var(--gut);scrollbar-width:thin}
-  .slide-s>*{flex:0 0 84%;scroll-snap-align:start}
-  .slide-s>.tl-item{align-content:start}
+  .slide-s>*{flex:0 0 84%;max-width:320px;scroll-snap-align:start}
+  /* Timeline cards in a row: photo on top, then year, title and text, so photos, years and titles
+     line up from card to card and the slack falls at the bottom. */
+  .slide-s>.tl-item{display:flex;flex-direction:column;gap:10px}
+  .slide-s>.tl-item .pin{display:none}
+  .slide-s>.tl-item h3{min-height:2.4em}
+  .slide-s>.tl-item .ph{order:-1;width:100%}
 }
