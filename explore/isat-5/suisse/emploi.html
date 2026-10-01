@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emploi — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="bandeau">Variante d'exploration isat-5 — contenu provisoire</p>
+<header class="site-header">
+  <p class="wordmark">Association des ingénieurs de l'ISAT</p>
+  <nav class="sections" aria-label="Sections">
+    <a href="index.html">Accueil</a>
+    <a href="ecole.html">École</a>
+    <a href="emploi.html" aria-current="page">Emploi</a>
+  </nav>
+</header>
+<main>
+  <div class="statement"><p class="enonce">Une offre <span class="accent">à partager</span>.</p></div>
+  <p class="para">L'association relaie les offres d'emploi et de stage de ses diplômés.</p>
+  <div class="contact">
+    <p class="adresse"><code id="adresse">emploi@alumni-isat.fr</code></p>
+    <button type="button" id="copier">Copier l'adresse</button>
+    <p id="statut" role="status" aria-live="polite"></p>
+  </div>
+</main>
+<footer class="page-nav">
+  <a href="ecole.html">← École</a>
+  <a href="index.html">Accueil →</a>
+</footer>
+<script>
+  var btn = document.getElementById("copier");
+  var statut = document.getElementById("statut");
+  btn.addEventListener("click", function () {
+    var adresse = document.getElementById("adresse").textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(adresse).then(function () {
+        statut.textContent = "Adresse copiée.";
+      }, function () {
+        statut.textContent = "Impossible de copier automatiquement : sélectionnez le texte ci-dessus.";
+      });
+    } else {
+      statut.textContent = "Copie non disponible : sélectionnez le texte ci-dessus.";
+    }
+  });
+</script>
+</body>
+</html>
