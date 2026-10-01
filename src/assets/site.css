@@ -272,8 +272,8 @@ html.js:not(.scroll-down) .floatbar:not(.is-static),html.foot-in .floatbar:not(.
   /* Mobile: one bar, the main action wide, the secondary as a compact round button. */
   .floatbar .wrap{gap:8px}
   .floatbar .lbl,.floatbar .hide-s{display:none}
-  .floatbar .pod:first-child{flex:1;padding:0;border:0} /* label hidden: the button is the pod, one edge only */
-  .floatbar .pod:first-child a{flex:1;min-height:50px}
+  .floatbar .pod:first-child{padding:0;border:0} /* label hidden: the button is the pod, one edge only */
+  .floatbar .pod:first-child a{min-height:50px;padding:0 20px}
   .floatbar .pod:last-child{padding:0} /* same height as the button beside it */
   .floatbar .pod:last-child a{min-height:48px;min-width:48px;padding:0 14px}
 }
