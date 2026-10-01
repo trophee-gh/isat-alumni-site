@@ -8,6 +8,8 @@ data/
 # 11ty global data: only named files enter, never a data dump.
 src/_data/*
 !src/_data/site.js
+!src/_data/nav.js
+!src/_data/copy.js
 *.csv
 *.xlsx
 *.xls

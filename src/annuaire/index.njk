@@ -1,0 +1,90 @@
+---
+layout: base.njk
+title: Annuaire · isat alumni
+---
+{%- set hero = {
+  eyebrow: "Annuaire", place: "opt-in",
+  title: "Retrouver un ingénieur ISAT.",
+  lead: "On n'y figure que si on l'a demandé, et seulement avec les champs choisis : nom, prénom, promo, programme et profil LinkedIn.",
+  hub: [{href: "#liste", label: "L'annuaire"}, {href: "#carte", label: "La carte"}, {href: "#figurer", label: "Y figurer"}],
+  fig: "Fig. 04"
+} -%}
+{% include "components/hero.njk" %}
+
+<section class="sec" id="liste"><div class="wrap">
+{%- set sh = {n: "01 / 03", eyebrow: "L'annuaire", title: "Par promo, vers LinkedIn.", lead: "Filtrer par promo et par secteur, puis ouvrir le profil LinkedIn."} %}
+{% include "components/section-head.njk" %}
+<div class="card">
+<form class="filters" id="filtres" onsubmit="return false">
+  <label>Promo<select id="promo"><option value="">Toutes</option></select></label>
+  <label>Secteur<select id="secteur"><option value="">Tous</option></select></label>
+</form>
+<p class="state" id="etat" aria-live="polite">Chargement…</p>
+<ul class="people" id="gens"></ul>
+</div>
+</div></section>
+
+<section class="sec" id="carte"><div class="wrap">
+{%- set sh = {n: "02 / 03", eyebrow: "La carte", title: "Où sont les anciens.", lead: "Agrégats du fichier de l'école ; chaque point est un pays, jamais une personne."} %}
+{% include "components/section-head.njk" %}
+{%- set map = {id: "carte-annuaire", controls: true} %}
+{% include "components/map.njk" %}
+<div style="margin-top:16px">
+{%- set figures = copy.figuresAnnuaire %}
+{% include "components/figures.njk" %}
+</div>
+<p class="muted" style="margin-top:16px;font-size:14px">Une vraie carte rouvre les décisions 010 et FE3 ; elle viendra plus tard. Ici, une carte en points dessinée, sans tuiles ni bibliothèque.</p>
+</div></section>
+
+<section class="sec" id="figurer"><div class="wrap">
+{%- set sh = {n: "03 / 03", eyebrow: "Y figurer", title: "Figurer, modifier, se retirer.", lead: "Écrivez à l'association ; chaque champ publié l'est avec votre accord, daté."} %}
+{% include "components/section-head.njk" %}
+{%- set addr = {email: "contact@alumni-isat.fr", id: "copy-contact"} %}
+{% include "components/copy-address.njk" %}
+</div></section>
+
+<script>
+// The annuaire: the public opt-in JSON (decisions 003, 014), filtered in the browser. Nothing else is loaded.
+(async () => {
+  const etat = document.getElementById("etat");
+  const liste = document.getElementById("gens");
+  const promo = document.getElementById("promo");
+  const secteur = document.getElementById("secteur");
+  let gens = [];
+  try {
+    gens = await (await fetch("annuaire.json")).json();
+  } catch {
+    etat.textContent = "L'annuaire n'a pas pu être chargé.";
+    return;
+  }
+  if (gens.length === 0) {
+    etat.textContent = "Pas encore d'inscrits : l'annuaire se remplit à mesure que les diplômés choisissent d'y figurer.";
+    document.getElementById("filtres").hidden = true;
+    return;
+  }
+  const options = (select, valeurs) => {
+    for (const v of [...new Set(valeurs.filter(Boolean))].sort()) select.add(new Option(v, v));
+  };
+  options(promo, gens.map(p => String(p.promo)));
+  options(secteur, gens.map(p => p.secteur));
+  if (secteur.options.length === 1) secteur.disabled = true;
+  const afficher = () => {
+    const choix = gens.filter(p =>
+      (!promo.value || String(p.promo) === promo.value) &&
+      (!secteur.value || p.secteur === secteur.value));
+    liste.replaceChildren(...choix.map(p => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = p.linkedin;
+      a.rel = "noopener";
+      a.textContent = `${p.prenom} ${p.nom}`;
+      li.append(a, ` — promo ${p.promo}, ${p.programme}`);
+      return li;
+    }));
+    etat.textContent = `${choix.length} diplômé${choix.length > 1 ? "s" : ""}`;
+  };
+  promo.addEventListener("change", afficher);
+  secteur.addEventListener("change", afficher);
+  afficher();
+})();
+</script>

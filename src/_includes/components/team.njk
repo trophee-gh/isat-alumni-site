@@ -1,0 +1,4 @@
+{#- Team: small portraits. Var: team [{name, role, photo}]. -#}
+<div class="team">
+{%- for p in team %}<div class="card portrait small"><div class="ph sq" role="img" aria-label="Photo à venir : {{ p.photo }}"><span>Photo</span></div><strong>{{ p.name }}</strong><span class="count">{{ p.role }}</span></div>{% endfor %}
+</div>

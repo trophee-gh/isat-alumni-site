@@ -1,0 +1,3 @@
+{#- An address to read and copy (copy button). Vars: addr.email, addr.id, addr.label ("Copier"), addr.ok. -#}
+<div class="addr"><code>{{ addr.email }}</code><button class="btn primary" type="button" data-copy="{{ addr.email }}" aria-controls="{{ addr.id }}">{{ addr.label or "Copier" }}</button></div>
+<p class="copied" id="{{ addr.id }}" data-ok="{{ addr.ok or 'Adresse copiée.' }}" aria-live="polite"></p>
