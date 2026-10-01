@@ -10,20 +10,22 @@
   --body:"Archivo",system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --display:"Archivo",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
-  --radius:14px;--max:1160px;--gut:16px;
+  --radius:14px;--max:1184px;--gut:16px;
   --tint:color-mix(in srgb,var(--accent) 10%,var(--surface));
   --tint-2:color-mix(in srgb,var(--accent) 18%,var(--paper));
-  --grid:color-mix(in srgb,var(--ink) 4%,transparent);
+  --grid:color-mix(in srgb,var(--ink) 3%,transparent);
+  --grid-bg:linear-gradient(to right,var(--grid) 1px,transparent 1px),linear-gradient(to bottom,var(--grid) 1px,transparent 1px);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
 body{margin:0;color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:96px;
   background-color:var(--paper);
-  /* The very faint grid. */
-  background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px),linear-gradient(to bottom,var(--grid) 1px,transparent 1px);
-  background-size:32px 32px;background-position:center top}
+  /* The very faint grid: 32 px, a line on the centre axis, so the framing lines (at ±19 cells) fall on it. */
+  background-image:var(--grid-bg);
+  background-size:32px 32px;background-position:calc(50% + 16px) 0}
 /* The framing lines at the content width. */
-body::before{content:"";position:fixed;inset:0;margin:0 auto;max-width:calc(var(--max) + 2*var(--gut));border-left:1px solid var(--line);border-right:1px solid var(--line);pointer-events:none;z-index:0}
+body::before{content:"";position:fixed;top:0;bottom:0;left:calc(50% - var(--max)/2 - var(--gut));width:calc(var(--max) + 2*var(--gut) + 1px);border-left:1px solid var(--line);border-right:1px solid var(--line);pointer-events:none;z-index:1}
+@media (max-width:1240px){body::before{left:0;right:0;width:auto}}
 img,svg{max-width:100%}
 a{color:var(--accent)}
 .wrap{max-width:calc(var(--max) + 2*var(--gut));margin:0 auto;padding:0 var(--gut);position:relative;z-index:1}
@@ -106,12 +108,14 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 @media (max-width:760px){.titleblock{position:static;border:0;border-top:1px solid var(--line);margin:24px calc(-1*clamp(24px,5vw,64px)) calc(-1*clamp(24px,5vw,64px));padding:10px clamp(24px,5vw,64px)}.hero-card:has(.titleblock) .hub{margin-bottom:0}}
 
 /* ---------- sections, ornaments where the framing lines cross ---------- */
-.sec{padding:clamp(48px,8vw,104px) 0;border-top:1px solid var(--line);position:relative}
+.sec{padding:clamp(48px,8vw,104px) 0;border-top:1px solid var(--line);position:relative;
+  /* The grid restarts on each section's top border, so its rows line up with it. */
+  background:var(--grid-bg) calc(50% + 16px) 0/32px 32px var(--paper);background-origin:border-box}
 .sec::before,.sec::after{content:"";position:absolute;top:-6px;width:11px;height:11px;z-index:2;
   background:linear-gradient(var(--accent),var(--accent)) center/100% 1.5px no-repeat,linear-gradient(var(--accent),var(--accent)) center/1.5px 100% no-repeat,var(--paper)}
 .sec::before{left:calc(50% - var(--max)/2 - var(--gut) - 5px)}
 .sec::after{right:calc(50% - var(--max)/2 - var(--gut) - 6px)}
-@media (max-width:1210px){.sec::before,.sec::after{display:none}}
+@media (max-width:1240px){.sec::before,.sec::after{display:none}}
 .sec-head{display:grid;grid-template-columns:1fr minmax(0,1.2fr);gap:24px 48px;align-items:end;margin-bottom:36px}
 .sec-head .lead{margin:0}
 .sec-head h2{margin:0}
