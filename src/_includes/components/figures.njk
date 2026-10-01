@@ -1,0 +1,12 @@
+{#- Figures (chiffres) as a bento. Var: figures [{cls, label, figure, small, title, text, bars[{k,w,v}]}]. -#}
+<div class="bento">
+{%- for c in figures %}
+<div class="card {{ c.cls }}"><div class="count">{{ c.label }}</div>
+{%- if c.figure %}<div class="figure">{{ c.figure }}{% if c.small %}<small>{{ c.small }}</small>{% endif %}</div>{% endif %}
+{%- if c.bars %}<div class="bars">{% for b in c.bars %}<div class="bar"><span>{{ b.k }}</span><span class="t"><i style="width:{{ b.w }}%"></i></span><span>{{ b.v }}</span></div>{% endfor %}</div>{% endif %}
+{%- if c.title %}<div><h3>{{ c.title }}</h3>{% endif %}
+{%- if c.text %}<p class="muted m0">{{ c.text | safe }}</p>{% endif %}
+{%- if c.title %}</div>{% endif %}
+</div>
+{%- endfor %}
+</div>

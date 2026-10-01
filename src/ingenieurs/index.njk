@@ -1,0 +1,56 @@
+---
+layout: base.njk
+title: Les ingénieurs ISAT · isat alumni
+---
+{%- set hero = {
+  eyebrow: "Les ingénieurs ISAT", place: "profil",
+  title: "Ce qu'est un ingénieur ISAT.",
+  lead: "Formé à l'automobile et aux transports, il sait aussi bien tenir un banc d'essai que mener un projet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  hub: [{href: "#formation", label: "La formation"}, {href: "#programmes", label: "Programmes"}, {href: "#parcours", label: "Parcours"}, {href: "#carrieres", label: "Carrières"}],
+  fig: "Fig. 03"
+} -%}
+{% include "components/hero.njk" %}
+
+<section class="sec" id="formation"><div class="wrap">
+{%- set sh = {n: "01 / 04", eyebrow: "La formation", title: "Une école publique, une spécialité.", lead: "Présentée comme la seule école publique d'ingénieurs spécialisée dans l'automobile et les transports en France. <span class='unv'>non vérifié</span>"} %}
+{% include "components/section-head.njk" %}
+<div class="bento">
+<div class="card b3" style="padding:0;overflow:hidden"><div class="ph wide" role="img" aria-label="Photo à venir : laboratoire DRIVE"><span>Photo · laboratoire DRIVE</span></div><div style="padding:20px"><h3>Recherche</h3><p class="muted m0">Le laboratoire DRIVE, adossé à l'école. <span class="unv">non vérifié</span></p></div></div>
+<div class="card b3"><div class="count">Repères, sources publiques</div><div class="grid-2" style="gap:14px"><div><div class="figure sm">1991</div><p class="muted m0">ouverture</p></div><div><div class="figure sm">≈820</div><p class="muted m0">étudiants</p></div><div><div class="figure sm">30+</div><p class="muted m0">partenaires internationaux</p></div><div><div class="figure sm">83 %</div><p class="muted m0">en poste à 6 mois</p></div></div><p class="m0"><span class="unv">non vérifié · sources en désaccord, sans année</span></p></div>
+</div>
+</div></section>
+
+<section class="sec" id="programmes"><div class="wrap">
+{%- set sh = {n: "02 / 04", eyebrow: "Programmes", title: "Cinq programmes au fichier.", lead: "Diplômés 1996–2022 par programme, d'après le fichier de l'école (agrégats)."} %}
+{% include "components/section-head.njk" %}
+{%- set programmes = copy.programmes %}
+{% include "components/engineers.njk" %}
+</div></section>
+
+<section class="sec" id="parcours"><div class="wrap">
+{%- set sh = {n: "03 / 04", eyebrow: "Parcours", title: "Des visages, bientôt.", lead: "Chaque portrait sera publié avec l'accord de la personne. En attendant, la place qu'ils prendront."} %}
+{% include "components/section-head.njk" %}
+{%- set portraits = copy.portraits %}{% set portraitCols = 4 %}
+{% include "components/portraits.njk" %}
+<div style="margin-top:16px">
+{%- set quote = {text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.", cite: "Prénom N., promo <span class='tbd'>TBD</span>"} %}
+{% include "components/quote.njk" %}
+</div>
+</div></section>
+
+<section class="sec" id="carrieres"><div class="wrap">
+{%- set sh = {n: "04 / 04", eyebrow: "Carrières", title: "Où travaillent-ils ?", lead: "Secteurs, employeurs, délai du premier emploi : les données manquent. Une enquête auprès des anciens les fournira, en agrégats."} %}
+{% include "components/section-head.njk" %}
+{%- set empty = [{k: "—", w: 0, v: "TBD"}, {k: "—", w: 0, v: "TBD"}, {k: "—", w: 0, v: "TBD"}] %}
+{%- set figures = [
+  {cls: "b3", label: "Secteurs", bars: empty, text: "Enquête anciens <span class='tbd'>TBD</span>"},
+  {cls: "b3", label: "Employeurs", bars: empty, text: "Enquête anciens <span class='tbd'>TBD</span>"},
+  {cls: "b3", label: "Premier emploi", bars: empty, text: "Enquête anciens <span class='tbd'>TBD</span>"},
+  {cls: "b3", label: "Fonctions", bars: empty, text: "Enquête anciens <span class='tbd'>TBD</span>"}
+] %}
+{% include "components/figures.njk" %}
+<div style="margin-top:16px">
+{%- set cta = {title: "Recruter un ingénieur ISAT", lead: "Envoyez l'offre à l'association : elle la relaie aux anciens.", href: "/emploi/", label: "Proposer une offre"} %}
+{% include "components/cta-band.njk" %}
+</div>
+</div></section>

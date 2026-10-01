@@ -1,0 +1,4 @@
+{#- FAQ accordion: native details/summary, styled; works without script. Var: faq [{q, a}]. -#}
+<div class="faq">
+{%- for f in faq %}<details{% if loop.first %} open{% endif %}><summary><span class="n">{{ loop.index | pad2 }}</span><span>{{ f.q }}</span><span class="pm" aria-hidden="true"></span></summary><div class="a"><p class="m0">{{ f.a | safe }}</p></div></details>{% endfor %}
+</div>

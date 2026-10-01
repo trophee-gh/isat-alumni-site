@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: ISAT alumni · in English
+lang: en
+---
+{%- set hero = {
+  eyebrow: "English", place: "in short",
+  title: "The ISAT engineers' network.",
+  lead: "The Association des ingénieurs de l'ISAT connects the graduates of ISAT, an engineering school specialised in automotive and transport in Nevers, France. <span class='unv'>school facts unverified</span>",
+  hub: [{href: "#about", label: "About"}, {href: "#figures", label: "Figures"}, {href: "#hire", label: "Hire"}],
+  fig: "Fig. 06", sheet: "Sheet 1/1"
+} -%}
+{% include "components/hero.njk" %}
+
+<section class="sec" id="about"><div class="wrap">
+{%- set sh = {eyebrow: "About", title: "An alumni association, revived.", lead: "It meets students, finds speakers, relays the school's news and job offers, and keeps the alumni list."} %}
+{% include "components/section-head.njk" %}
+<div class="split"><div class="ph tall" role="img" aria-label="Photo to come: alumni meeting"><span>Photo · alumni meeting</span></div><div class="card stack"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p class="m0"><a class="btn" href="/" lang="fr" hreflang="fr">Site in French {% include "icons/arrow.njk" %}</a></p></div></div>
+</div></section>
+
+<section class="sec" id="figures"><div class="wrap">
+{%- set figures = copy.figuresEn %}
+{% include "components/figures.njk" %}
+</div></section>
+
+<section class="sec" id="hire"><div class="wrap">
+{%- set sh = {eyebrow: "Hire", title: "Hiring an ISAT engineer?", lead: "Send the offer to the association; it relays it to alumni."} %}
+{% include "components/section-head.njk" %}
+{%- set addr = {email: "emploi@alumni-isat.fr", id: "copy-en", label: "Copy", ok: "Address copied."} %}
+{% include "components/copy-address.njk" %}
+<div style="margin-top:16px">
+{%- set outLang = "en" %}
+{% include "components/outbound.njk" %}
+</div>
+</div></section>

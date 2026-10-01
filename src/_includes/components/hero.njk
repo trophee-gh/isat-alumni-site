@@ -1,0 +1,14 @@
+{#- Hero card with hub links (one line each; a scroll-snap slider on mobile) and the cartouche.
+    Vars: hero.eyebrow, hero.place, hero.title, hero.lead, hero.hub [{href,label}], hero.fig, hero.sheet; heroBefore (html above the card). -#}
+<section class="hero"><div class="wrap">
+{%- if heroBefore %}{{ heroBefore | safe }}{% endif %}
+<div class="hero-card frame">
+<div class="eyebrow"><b>{{ hero.eyebrow }}</b> · {{ hero.place or "Nevers" }}</div>
+<h1>{{ hero.title }}</h1>
+<p class="lead">{{ hero.lead | safe }}</p>
+{%- if hero.hub %}
+<div class="hub">{% for h in hero.hub %}<a href="{{ h.href }}"><span class="n">{{ loop.index | pad2 }} / {{ hero.hub.length | pad2 }}</span><strong>{{ h.label }} <span aria-hidden="true">↓</span></strong></a>{% endfor %}</div>
+{%- endif %}
+<div class="titleblock" aria-hidden="true"><span>isat alumni</span><b>{{ hero.fig or "Fig. 01" }}</b><span>Nevers</span><span>{{ hero.sheet or "Planche 1/1" }}</span></div>
+</div>
+</div></section>

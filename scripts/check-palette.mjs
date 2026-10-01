@@ -1,4 +1,5 @@
-// Every colour on the built site is from the ISAT chart (Octobre 2025), or burgundy with transparency.
+// Every colour on the built site is from the ISAT chart (Octobre 2025) or the Trait neutrals (isat-6),
+// opaque or with transparency.
 // Usage: node scripts/check-palette.mjs [built folder, default _site]
 // Scans every .css file and every <style> block and style="" attribute in .html: hex, rgb(a), hsl(a)
 // colours, and any bare word in a colour property that is not a keyword (a named colour).
@@ -15,12 +16,16 @@ const chart = new Set([
   "303b3e", // logo grey, Pantone 425
   "65696b", "000000", "ffffff", // web palette
   "e7d0c1", // beige, Pantone 4755 C at 60 %
+  // Trait neutrals (isat-5 converged pick, isat-6): paper, paper-2, line, ink, muted, photo placeholders.
+  "f4f3ef", "ecebe5", "dcdad3", "111111", "6b6b6b", "d5d7d4", "c3c6c2",
 ]);
-const burgundy = [161, 14, 47];
 
 const hex2 = (h) => (h.length <= 4 ? [...h].map((c) => c + c).join("") : h).toLowerCase();
 const keywords = new Set(["transparent", "currentcolor", "inherit", "initial", "unset", "revert", "none",
-  "solid", "dashed", "dotted", "double", "underline", "auto", "from-font"]);
+  "solid", "dashed", "dotted", "double", "underline", "auto", "from-font",
+  // Colour and image functions whose colour arguments are checked above (isat-6: color-mix, gradients).
+  "color-mix", "in", "srgb", "linear-gradient", "radial-gradient", "to", "right", "left", "top", "bottom",
+  "center", "circle", "at", "no-repeat", "inset", "-"]);
 const colourProps = /^(color|background(-color)?|border(-(top|right|bottom|left))?(-color)?|outline(-color)?|text-decoration(-color)?|box-shadow|text-shadow|fill|stroke|caret-color|accent-color|column-rule(-color)?)$/i;
 
 // The declarations of a stylesheet (or of a style="" attribute), selectors left out.
@@ -38,17 +43,14 @@ function checkValue(prop, css, where, found) {
     const full = hex2(h);
     const rgb = full.slice(0, 6), alpha = full.slice(6);
     if (alpha && alpha !== "ff") {
-      const [r, g, b] = [0, 2, 4].map((i) => parseInt(rgb.slice(i, i + 2), 16));
-      if (r === burgundy[0] && g === burgundy[1] && b === burgundy[2]) continue;
-      found.push({ file: where, colour: m[0], why: "transparent, not burgundy" });
+      if (!chart.has(rgb)) found.push({ file: where, colour: m[0], why: "transparent, not in the palette" });
     } else if (!chart.has(rgb)) found.push({ file: where, colour: m[0], why: "not in the chart" });
   }
   for (const m of css.matchAll(/rgba?\(\s*([^)]*)\)/gi)) {
     const [r, g, b, a] = m[1].split(/[\s,/]+/).filter(Boolean);
     const rgb = [r, g, b].map((v) => Number(v).toString(16).padStart(2, "0")).join("");
     if (a !== undefined && Number(a.replace("%", "")) < (a.endsWith("%") ? 100 : 1)) {
-      if (rgb === "a10e2f") continue;
-      found.push({ file: where, colour: m[0], why: "transparent, not burgundy" });
+      if (!chart.has(rgb)) found.push({ file: where, colour: m[0], why: "transparent, not in the palette" });
     } else if (!chart.has(rgb)) found.push({ file: where, colour: m[0], why: "not in the chart" });
   }
   for (const m of css.matchAll(/hsla?\([^)]*\)/gi)) found.push({ file: where, colour: m[0], why: "hsl: write it as hex" });

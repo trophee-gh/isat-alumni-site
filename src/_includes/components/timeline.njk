@@ -1,0 +1,4 @@
+{#- Timeline with photo slots. Var: timeline [{yr, title, text, photo}]. -#}
+<div class="tl">
+{%- for t in timeline %}<div class="tl-item"><div class="yr">{{ t.yr }}</div><div class="pin"></div><div><h3>{{ t.title }}</h3><p class="muted">{{ t.text | safe }}</p></div><div class="ph" role="img" aria-label="Photo à venir : {{ t.photo }}"><span>Photo · {{ t.photo }}</span></div></div>{% endfor %}
+</div>

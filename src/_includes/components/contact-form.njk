@@ -1,0 +1,13 @@
+{#- Contact form, mock: Netlify Forms markup (data-netlify, form-name, honeypot), posting to this site.
+    Nothing is sent now: site.js stops the submit until hosting is decided (contract: not in it). -#}
+<form class="card stack" name="offre-emploi" method="post" action="/emploi/" data-netlify="true" netlify-honeypot="bot-field" data-mock>
+<input type="hidden" name="form-name" value="offre-emploi">
+<p class="hidden-field" aria-hidden="true"><label>Ne pas remplir <input name="bot-field" tabindex="-1"></label></p>
+<p class="m0"><span class="pending">Formulaire Netlify · en attente d'hébergement</span></p>
+<div class="field"><label for="f-org">Entreprise</label><input id="f-org" name="entreprise" autocomplete="organization"></div>
+<div class="field"><label for="f-mail">Adresse de contact</label><input id="f-mail" name="email" type="email" autocomplete="email"></div>
+<div class="field"><label for="f-type">Type</label><select id="f-type" name="type"><option>Emploi</option><option>Stage</option><option>Alternance</option></select></div>
+<div class="field"><label for="f-msg">L'offre</label><textarea id="f-msg" name="offre" rows="5"></textarea></div>
+<div><button class="btn signal" type="submit">Envoyer (maquette)</button></div>
+<p class="copied" aria-live="polite" data-ok="Maquette : rien n'est envoyé tant que l'hébergement n'est pas décidé. Utilisez l'adresse à copier."></p>
+</form>

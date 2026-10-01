@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: Emploi · isat alumni
+---
+{#- Order (trait-feedback): intro, then the contact form, then the additional information. -#}
+{%- set hero = {
+  eyebrow: "Emploi", place: "recruteurs",
+  title: "Recrutez un ingénieur ISAT.",
+  lead: "Envoyez votre offre d'emploi ou de stage à l'association. Elle la relaie aux anciens qui ont demandé à les recevoir.",
+  hub: [{href: "#contact", label: "Envoyer l'offre"}, {href: "#pourquoi", label: "Pourquoi l'ISAT"}],
+  fig: "Fig. 05"
+} -%}
+{% include "components/hero.njk" %}
+
+<section class="sec" id="contact"><div class="wrap">
+{%- set sh = {n: "01 / 02", eyebrow: "Envoyer l'offre", title: "Un formulaire, une adresse.", lead: "Le formulaire viendra avec l'hébergement ; en attendant, copiez l'adresse dans votre messagerie."} %}
+{% include "components/section-head.njk" %}
+<div class="split">
+{% include "components/contact-form.njk" %}
+<div class="card stack">
+<div class="eyebrow"><b>●</b> Adresse emploi</div>
+{%- set addr = {email: "emploi@alumni-isat.fr", id: "copy-emploi"} %}
+{% include "components/copy-address.njk" %}
+<ul class="ticks"><li>Intitulé, lieu, type de contrat.</li><li>Une personne à contacter.</li><li>Relais aux anciens sous <span class="tbd">délai TBD</span>.</li></ul>
+<div class="ph wide" role="img" aria-label="Photo à venir : recruteur et ancien"><span>Photo · recruteur et ancien</span></div>
+</div>
+</div>
+</div></section>
+
+<section class="sec" id="pourquoi"><div class="wrap">
+{%- set sh = {n: "02 / 02", eyebrow: "Pourquoi l'ISAT", title: "Un vivier qualifié.", lead: "Quelques faits, pour aller plus loin."} %}
+{% include "components/section-head.njk" %}
+{%- set figures = copy.figuresEmploi.concat([{cls: "b6", label: "Spécialités", text: "Automobile et transports, essais, conception, méthodes : <span class='tbd'>liste exacte TBD</span>"}]) %}
+{% include "components/figures.njk" %}
+</div></section>

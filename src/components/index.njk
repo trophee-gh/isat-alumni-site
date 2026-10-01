@@ -1,0 +1,116 @@
+---
+layout: base.njk
+title: Components · isat alumni
+---
+{#- The gallery: each component alone, with its variants, and a font switcher (custom properties). -#}
+<section class="hero"><div class="wrap">
+<div class="eyebrow"><b>isat-6</b> · galerie des composants</div>
+<h1>Composants</h1>
+<p class="lead">Chaque composant seul, avec ses variantes. Le sélecteur change la police du texte et des titres sur toute la page ; les étiquettes et les chiffres restent en JetBrains Mono.</p>
+<div class="fontbar" role="group" aria-label="Polices">
+<div class="grp"><span>Texte</span><button type="button" data-prop="--body" data-font="inter" aria-pressed="true">Inter</button><button type="button" data-prop="--body" data-font="grotesk" aria-pressed="false">Space Grotesk</button><button type="button" data-prop="--body" data-font="archivo" aria-pressed="false">Archivo</button></div>
+<div class="grp"><span>Titres</span><button type="button" data-prop="--display" data-font="inter" aria-pressed="false">Inter</button><button type="button" data-prop="--display" data-font="grotesk" aria-pressed="true">Space Grotesk</button><button type="button" data-prop="--display" data-font="archivo" aria-pressed="false">Archivo</button></div>
+</div>
+</div></section>
+
+<div class="wrap">
+
+<section class="gal-item" id="c-header"><h2 class="gal-label">Header <code>components/header.njk</code></h2>
+<p class="gal-variant">Variante · teinte blanche (par défaut, sur le site)</p>
+<div class="gal-stage">{% set headerStatic = true %}{% set headerTint = "white" %}{% include "components/header.njk" %}</div>
+<p class="gal-variant">Variante · teinte papier (Trait, isat-5)</p>
+<div class="gal-stage">{% set headerTint = "paper" %}{% include "components/header.njk" %}{% set headerTint = "white" %}{% set headerStatic = false %}</div>
+</section>
+
+<section class="gal-item" id="c-en"><h2 class="gal-label">EN <code>components/en-button.njk · components/en-card.njk</code></h2>
+<p class="gal-variant">Option 1 · bouton restylé (dans le header des pages intérieures)</p>
+<div class="gal-stage">{% include "components/en-button.njk" %}</div>
+<p class="gal-variant">Option 2 · carte en haut de l'accueil (utilisée sur l'accueil)</p>
+<div class="gal-stage">{% include "components/en-card.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-hero"><h2 class="gal-label">Hero, liens hub, cartouche <code>components/hero.njk</code></h2>
+<p class="gal-variant">Cinq liens · sur mobile, un défilement horizontal</p>
+<div class="gal-stage">{%- set hero = {eyebrow: "Accroche", title: "Titre du hero sur une ou deux lignes.", lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.", hub: [{href: "#c-hero", label: "En chiffres"}, {href: "#c-hero", label: "Dans le monde"}, {href: "#c-hero", label: "Les ingénieurs"}, {href: "#c-hero", label: "L'histoire"}, {href: "#c-hero", label: "Rejoindre"}]} %}{% include "components/hero.njk" %}</div>
+<p class="gal-variant">Deux liens</p>
+<div class="gal-stage">{%- set hero = {eyebrow: "Emploi", place: "recruteurs", title: "Un hero court.", lead: "Lorem ipsum dolor sit amet.", hub: [{href: "#c-hero", label: "Envoyer l'offre"}, {href: "#c-hero", label: "Pourquoi l'ISAT"}], fig: "Fig. 05"} %}{% include "components/hero.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-section-head"><h2 class="gal-label">Tête de section <code>components/section-head.njk</code></h2>
+<div class="gal-stage">{%- set sh = {n: "01 / 06", eyebrow: "Accroche", title: "Titre de section.", lead: "Une phrase d'introduction, plus grise, à côté du titre."} %}{% include "components/section-head.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-figures"><h2 class="gal-label">Chiffres, bento <code>components/figures.njk</code></h2>
+<p class="gal-variant">Accueil : chiffre, accent, sombre, barres</p>
+<div class="gal-stage">{% set figures = copy.figuresHome %}{% include "components/figures.njk" %}</div>
+<p class="gal-variant">Cartes texte (missions)</p>
+<div class="gal-stage">{% set figures = copy.missions %}{% include "components/figures.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-map"><h2 class="gal-label">Carte <code>components/map.njk</code></h2>
+<p class="gal-variant">Simple (accueil)</p>
+<div class="gal-stage">{% set map = {id: "g-map-1"} %}{% include "components/map.njk" %}</div>
+<p class="gal-variant">Avec vues rapides (annuaire)</p>
+<div class="gal-stage">{% set map = {id: "g-map-2", controls: true} %}{% include "components/map.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-engineers"><h2 class="gal-label">Ingénieurs, programmes <code>components/engineers.njk</code></h2>
+<div class="gal-stage">{% set programmes = copy.programmes %}{% include "components/engineers.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-portraits"><h2 class="gal-label">Portraits <code>components/portraits.njk · components/team.njk</code></h2>
+<p class="gal-variant">Trois colonnes</p>
+<div class="gal-stage">{% set portraits = copy.portraits.slice(0, 3) %}{% set portraitCols = 3 %}{% include "components/portraits.njk" %}</div>
+<p class="gal-variant">Quatre colonnes</p>
+<div class="gal-stage">{% set portraits = copy.portraits %}{% set portraitCols = 4 %}{% include "components/portraits.njk" %}</div>
+<p class="gal-variant">Équipe, petits portraits</p>
+<div class="gal-stage">{% set team = copy.team %}{% include "components/team.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-quote"><h2 class="gal-label">Citation <code>components/quote.njk</code></h2>
+<div class="gal-stage">{%- set quote = {text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.", cite: "Prénom N., promo <span class='tbd'>TBD</span>"} %}{% include "components/quote.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-timeline"><h2 class="gal-label">Frise <code>components/timeline.njk</code></h2>
+<div class="gal-stage">{% set timeline = copy.timeline.slice(0, 3) %}{% include "components/timeline.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-outbound"><h2 class="gal-label">Liens sortants, LinkedIn et HelloAsso <code>components/outbound.njk</code></h2>
+<div class="gal-stage">{% set outLang = "fr" %}{% include "components/outbound.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-cta"><h2 class="gal-label">Bandeau d'appel <code>components/cta-band.njk</code></h2>
+<div class="gal-stage">{%- set cta = {eyebrow: "Recruteurs", title: "Une offre pour un ingénieur ISAT ?", lead: "707 anciens ont demandé à recevoir les offres.", href: "/emploi/", label: "Proposer une offre"} %}{% include "components/cta-band.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-faq"><h2 class="gal-label">FAQ, accordéon <code>components/faq.njk</code></h2>
+<div class="gal-stage">{% set faq = copy.faq %}{% include "components/faq.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-form"><h2 class="gal-label">Formulaire de contact (maquette Netlify) <code>components/contact-form.njk</code></h2>
+<div class="gal-stage" style="max-width:560px">{% include "components/contact-form.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-copy"><h2 class="gal-label">Adresse à copier <code>components/copy-address.njk</code></h2>
+<div class="gal-stage">{% set addr = {email: "emploi@alumni-isat.fr", id: "g-copy"} %}{% include "components/copy-address.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-prevnext"><h2 class="gal-label">Navigation avant le pied, suisse <code>components/prev-next.njk</code></h2>
+<p class="gal-variant">Exemple sur la page « Les ingénieurs ISAT »</p>
+<div class="gal-stage">{% set pageSave = page %}{% set page = {url: "/ingenieurs/"} %}{% include "components/prev-next.njk" %}{% set page = pageSave %}</div>
+</section>
+
+<section class="gal-item" id="c-float"><h2 class="gal-label">Boutons flottants <code>components/floating-buttons.njk</code></h2>
+<p class="gal-variant">Ici en place ; sur le site, fixés en bas, cachés au défilement vers le bas</p>
+<div class="gal-stage">{% set floatStatic = true %}{% include "components/floating-buttons.njk" %}{% set floatStatic = false %}</div>
+</section>
+
+<section class="gal-item" id="c-footer"><h2 class="gal-label">Pied de page <code>components/footer.njk</code></h2>
+<div class="gal-stage">{% include "components/footer.njk" %}</div>
+</section>
+
+<section class="gal-item" id="c-favicon"><h2 class="gal-label">Favicon « al » <code>favicon.svg</code></h2>
+<div class="gal-stage"><img src="/favicon.svg" width="64" height="64" alt="Favicon al, cramoisi"></div>
+</section>
+
+</div>

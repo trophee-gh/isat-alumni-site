@@ -1,0 +1,66 @@
+---
+layout: base.njk
+title: Accueil · isat alumni
+description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingénieurs, histoire."
+showEn: false
+---
+{%- set heroBefore %}{% include "components/en-card.njk" %}{% endset -%}
+{%- set hero = {
+  eyebrow: "Association des ingénieurs de l'ISAT",
+  title: "L'automobile s'apprend à Nevers. Le réseau, partout.",
+  lead: "2 672 ingénieurs diplômés depuis 1996, dans 36 pays hors France. L'association les relie entre eux, à l'école et aux entreprises qui recrutent.",
+  hub: [{href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#ingenieurs", label: "Les ingénieurs"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}]
+} -%}
+{% include "components/hero.njk" %}
+{%- set heroBefore = false %}
+
+<section class="sec" id="chiffres"><div class="wrap">
+{%- set sh = {n: "01 / 06", eyebrow: "L'association en chiffres", title: "Un réseau qui pèse.", lead: "Des chiffres tirés du fichier de l'école, en agrégats seulement. Ceux sur les carrières viendront d'une enquête auprès des anciens."} %}
+{% include "components/section-head.njk" %}
+{%- set figures = copy.figuresHome %}
+{% include "components/figures.njk" %}
+</div></section>
+
+<section class="sec" id="carte"><div class="wrap">
+{%- set sh = {n: "02 / 06", eyebrow: "Annuaire · carte", title: "Où sont les anciens", lead: "36 pays hors France. Chaque point marque un pays, jamais une personne ; les effectifs par pays sont à venir."} %}
+{% include "components/section-head.njk" %}
+{%- set map = {id: "carte-accueil"} %}
+{% include "components/map.njk" %}
+<p style="margin-top:18px"><a class="btn" href="/annuaire/">Ouvrir l'annuaire {% include "icons/arrow.njk" %}</a></p>
+</div></section>
+
+<section class="sec" id="ingenieurs"><div class="wrap">
+{%- set sh = {n: "03 / 06", eyebrow: "Les ingénieurs ISAT", title: "Formés pour l'automobile, utiles partout.", lead: "Des portraits à venir : des parcours réels, avec l'accord de chacun. Ici, l'emplacement qu'ils occuperont."} %}
+{% include "components/section-head.njk" %}
+{%- set portraits = copy.portraits.slice(0, 3) %}{% set portraitCols = 3 %}
+{% include "components/portraits.njk" %}
+<p style="margin-top:22px"><a class="btn" href="/ingenieurs/">Découvrir les ingénieurs {% include "icons/arrow.njk" %}</a></p>
+<div style="margin-top:16px">
+{%- set quote = {text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.", cite: "Prénom N., promo <span class='tbd'>TBD</span> · citation à recueillir"} %}
+{% include "components/quote.njk" %}
+</div>
+</div></section>
+
+<section class="sec" id="histoire"><div class="wrap">
+{%- set sh = {n: "04 / 06", eyebrow: "Frise", title: "Trente ans d'école, un réseau qui grandit.", lead: "Les promos grossissent : 29 diplômés en 1996, 180 en 2022. Les photos d'archives viendront de l'école et des anciens."} %}
+{% include "components/section-head.njk" %}
+{%- set timeline = copy.timeline %}
+{% include "components/timeline.njk" %}
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap">
+{%- set sh = {n: "05 / 06", eyebrow: "Questions fréquentes", title: "Questions, réponses.", lead: "Questions et réponses provisoires : ce tour règle la forme de l'accordéon."} %}
+{% include "components/section-head.njk" %}
+{%- set faq = copy.faq %}
+{% include "components/faq.njk" %}
+</div></section>
+
+<section class="sec" id="rejoindre"><div class="wrap">
+{%- set sh = {n: "06 / 06", eyebrow: "Rejoindre", title: "Suivre, adhérer, recruter.", lead: "Le quotidien de l'association vit sur LinkedIn ; l'adhésion passe par HelloAsso. Deux liens sortants, rien d'intégré."} %}
+{% include "components/section-head.njk" %}
+{% include "components/outbound.njk" %}
+<div style="margin-top:16px">
+{%- set cta = {eyebrow: "Recruteurs", title: "Une offre pour un ingénieur ISAT ?", lead: "707 anciens ont demandé à recevoir les offres. L'association les relaie.", href: "/emploi/", label: "Proposer une offre"} %}
+{% include "components/cta-band.njk" %}
+</div>
+</div></section>

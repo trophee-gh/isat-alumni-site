@@ -1,0 +1,2 @@
+{#- Call-to-action band. Vars: cta.eyebrow, cta.title, cta.lead, cta.href, cta.label. -#}
+<div class="band"><div>{% if cta.eyebrow %}<div class="eyebrow">{{ cta.eyebrow }}</div>{% endif %}<h2 class="m0">{{ cta.title }}</h2><p class="lead" style="margin:12px 0 0">{{ cta.lead | safe }}</p></div><div><a class="btn signal" href="{{ cta.href }}">{{ cta.label }} {% include "icons/arrow.njk" %}</a></div></div>

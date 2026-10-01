@@ -1,0 +1,4 @@
+{#- The ISAT engineers (ingénieurs): one card per programme, graduates 1996–2022 (roster aggregates). Var: programmes. -#}
+<div class="grid-3">
+{%- for p in programmes %}<div class="card stack{% if p.tinted %} tinted{% endif %}"><span class="chip">{{ p.chip }}</span><div class="figure" style="font-size:2.6rem">{{ p.figure }}</div><p class="muted m0">{{ p.text | safe }}</p></div>{% endfor %}
+</div>

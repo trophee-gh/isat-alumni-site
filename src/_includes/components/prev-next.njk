@@ -1,0 +1,8 @@
+{#- Pre-footer, Swiss: two columns on the outer edges, "← previous" left, "next →" right. Reads nav and page.url. -#}
+{%- set ix = -1 %}{% for p in nav %}{% if p.url == page.url %}{% set ix = loop.index0 %}{% endif %}{% endfor %}
+{%- if ix >= 0 %}
+<nav class="prevnext" aria-label="Page précédente et suivante"><div class="wrap">
+{%- if ix > 0 %}{% set p = nav[ix - 1] %}<a class="prev" href="{{ p.url }}" rel="prev"{% if p.lang %} lang="{{ p.lang }}"{% endif %}><small>{% if lang == "en" %}Previous page{% else %}Page précédente{% endif %}</small><strong>← {{ p.label }}</strong></a>{% endif %}
+{%- if ix < nav.length - 1 %}{% set p = nav[ix + 1] %}<a class="next" href="{{ p.url }}" rel="next"{% if p.lang %} lang="{{ p.lang }}"{% endif %}><small>{% if lang == "en" %}Next page{% else %}Page suivante{% endif %}</small><strong>{{ p.label }} →</strong></a>{% endif %}
+</div></nav>
+{%- endif %}

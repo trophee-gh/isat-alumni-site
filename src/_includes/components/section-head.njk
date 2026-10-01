@@ -1,0 +1,2 @@
+{#- Section head: eyebrow number, title, lead. Vars: sh.n, sh.eyebrow, sh.title, sh.lead. -#}
+<div class="sec-head"><div><div class="eyebrow">{% if sh.n %}<b>{{ sh.n }}</b> {% endif %}{{ sh.eyebrow }}</div><h2>{{ sh.title }}</h2></div>{% if sh.lead %}<p class="lead">{{ sh.lead | safe }}</p>{% endif %}</div>
