@@ -1,10 +1,9 @@
 {#- Header. Logo as two-line type "ISAT / ALUMNI" (trait-feedback answer 2).
-    Vars: headerTint ("white" default | "paper"), headerStatic (gallery), showEn (default true), page.url. -#}
+    Vars: headerTint ("white" default | "paper"), headerStatic (gallery), page.url. English is reached by the homepage card, the menu and the footer. -#}
 <header class="top{% if headerTint == 'paper' %} tint-paper{% endif %}{% if headerStatic %} is-static{% endif %}"><div class="wrap">
 <a class="brand" href="/" aria-label="isat alumni, accueil"><span>ISAT</span><span>ALUMNI</span></a>
 <nav class="nav" aria-label="Pages">
 {%- for p in nav %}{% if not p.lang %}<a href="{{ p.url }}"{% if page.url == p.url %} aria-current="page"{% endif %}>{{ p.label }}</a>{% endif %}{% endfor %}
-{%- if showEn != false %}{% include "components/en-button.njk" %}{% endif %}
 </nav>
 <details class="menu"><summary>Menu</summary><div class="sheet">
 {%- for p in nav %}<a href="{{ p.url }}"{% if p.lang %} lang="{{ p.lang }}" hreflang="{{ p.lang }}"{% endif %}{% if page.url == p.url %} aria-current="page"{% endif %}>{% if p.lang %}{% set flagSize = 22 %}{% include "icons/flag-uk.njk" %}{% endif %}{{ p.label }}</a>{% endfor -%}

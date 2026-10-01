@@ -67,9 +67,6 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 
 /* ---------- EN: button and card ---------- */
 .flag{display:block;flex:none;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
-.en-button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px 0 6px;margin-left:6px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-decoration:none;font:600 12px/1 var(--mono);letter-spacing:.08em}
-.nav .en-button{padding:0 14px 0 6px}
-.en-button:hover{border-color:var(--ink)}
 .en-card{display:flex;align-items:center;gap:14px;max-width:420px;min-height:64px;padding:10px 18px 10px 10px;margin:0 0 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink);text-decoration:none;transition:box-shadow .15s,transform .15s}
 .en-card:hover{transform:translateY(-1px);box-shadow:0 10px 26px -18px rgb(0 0 0/.4)}
 .en-card .flag{border-radius:8px}
@@ -87,7 +84,7 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 .hero{padding:clamp(28px,6vw,80px) 0 40px}
 .hero-card{background:var(--surface);border-radius:calc(var(--radius) + 8px);padding:clamp(24px,5vw,64px);position:relative;overflow:hidden;border:1px solid var(--line)}
 .hub{display:flex;gap:10px;margin-top:32px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
-.hub>a{flex:1 0 190px;max-width:320px;scroll-snap-align:start}
+.hub>a{flex:1 0 190px;max-width:240px;scroll-snap-align:start}
 .hub a{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:96px;padding:16px 18px;border-radius:var(--radius);text-decoration:none;color:inherit;background:color-mix(in srgb,var(--ink) 5%,transparent);border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);transition:background .15s}
 .hub a:hover{background:color-mix(in srgb,var(--ink) 10%,transparent)}
 .hub .n{font:500 12px var(--mono);color:var(--muted)}
@@ -96,7 +93,7 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 @media (max-width:760px){
   /* Mobile: a horizontal slider, snapping per link. */
   .hub{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:28px calc(-1*clamp(24px,5vw,64px)) 0;padding:0 clamp(24px,5vw,64px) 6px;scroll-padding:0 clamp(24px,5vw,64px);scrollbar-width:thin}
-  .hub a{flex:0 0 auto;min-width:62%;max-width:320px;scroll-snap-align:start}
+  .hub a{flex:0 0 auto;min-width:62%;max-width:240px;scroll-snap-align:start}
 }
 /* The cartouche (title block of a technical drawing). */
 .frame{position:relative}
@@ -177,11 +174,12 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 @media (max-width:600px){.quote{grid-template-columns:1fr}.quote .ph{width:96px}}
 
 /* ---------- timeline ---------- */
-.tl-item{display:grid;grid-template-columns:120px 28px 1fr 260px;gap:18px;align-items:start;padding:22px 0;border-top:1px solid var(--line)}
+.tl{display:grid;gap:12px}
+.tl-item{display:grid;grid-template-columns:120px 28px 1fr 260px;gap:18px;align-items:start;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
 .tl-item .yr{font:600 22px var(--mono);letter-spacing:-.03em}
 .tl-item .pin{width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);margin-top:6px}
 .tl-item .ph{min-height:0;aspect-ratio:3/2}
-@media (max-width:760px){.tl-item{grid-template-columns:72px 1fr}.tl-item .pin{display:none}.tl-item .ph{grid-column:1/-1}.tl-item .yr{font-size:18px}}
+@media (max-width:760px){.tl-item{grid-template-columns:72px 1fr;padding:18px}.tl-item .pin{display:none}.tl-item .ph{grid-column:1/-1}.tl-item .yr{font-size:18px}}
 
 /* ---------- map ---------- */
 .mapcard{background:var(--surface);border:1px solid var(--line);border-radius:calc(var(--radius) + 6px);padding:clamp(14px,3vw,28px);overflow:hidden}
@@ -229,8 +227,8 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 .ticks li::before{content:"";width:18px;height:18px;margin-top:4px;border-radius:6px;background:var(--tint-2);box-shadow:inset 0 0 0 5px var(--surface),inset 0 0 0 9px var(--accent)}
 
 /* ---------- FAQ accordion ---------- */
-.faq{border-top:1px solid var(--ink)}
-.faq details{border-bottom:1px solid var(--line)}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:0 20px}
 .faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:48px 1fr 28px;gap:12px;align-items:center;min-height:64px;padding:14px 0;font:600 clamp(1.05rem,2.2vw,1.3rem)/1.3 var(--display)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary .n{font:500 12px var(--mono);color:var(--muted)}
@@ -241,7 +239,7 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 .faq details[open] .pm::before,.faq details[open] .pm::after{background:var(--accent-ink)}
 .faq summary:hover{color:var(--accent)}
 .faq .a{padding:0 40px 22px 60px;color:var(--muted);max-width:70ch}
-@media (max-width:600px){.faq summary{grid-template-columns:32px 1fr 28px}.faq .a{padding:0 0 20px 44px}}
+@media (max-width:600px){.faq details{padding:0 16px}.faq summary{grid-template-columns:32px 1fr 28px}.faq .a{padding:0 0 20px 44px}}
 
 /* ---------- prev / next (Swiss) ---------- */
 .prevnext{border-top:1px solid var(--line);margin-top:40px;position:relative}
