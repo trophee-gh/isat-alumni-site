@@ -1,5 +1,5 @@
 {#- Figures (chiffres) as a bento. Var: figures [{cls, label, figure, small, title, text, bars[{k,w,v}]}]. -#}
-<div class="bento">
+<div class="bento slide-s">
 {%- for c in figures %}
 <div class="card {{ c.cls }}"><div class="count">{{ c.label }}</div>
 {%- if c.figure %}<div class="figure">{{ c.figure }}{% if c.small %}<small>{{ c.small }}</small>{% endif %}</div>{% endif %}

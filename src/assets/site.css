@@ -301,3 +301,9 @@ html.js:not(.scroll-down) .floatbar:not(.is-static),html.foot-in .floatbar:not(.
 .state{font:500 13px var(--mono);color:var(--muted)}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important;animation:none!important}html{scroll-behavior:auto}}
+/* Phones: card rows become sideways sliders instead of long vertical stacks (isat-7). */
+@media (max-width:600px){
+  .slide-s{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1*var(--gut));margin-right:calc(-1*var(--gut));padding:0 var(--gut) 6px;scroll-padding:0 var(--gut);scrollbar-width:thin}
+  .slide-s>*{flex:0 0 84%;scroll-snap-align:start}
+  .slide-s>.tl-item{align-content:start}
+}
