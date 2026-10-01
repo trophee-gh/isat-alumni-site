@@ -60,7 +60,7 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 .menu summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px;padding:0 16px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em}
 .menu summary::-webkit-details-marker{display:none}
 .menu[open] .sheet{display:grid}
-.sheet{display:none;position:absolute;right:var(--gut);left:var(--gut);top:72px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:8px;box-shadow:0 20px 40px -20px rgb(0 0 0/.25)}
+.sheet{display:none;position:absolute;right:var(--gut);left:var(--gut);top:calc(100% + 1px + var(--gut));background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:8px;box-shadow:0 20px 40px -20px rgb(0 0 0/.25)}
 .sheet a{min-height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;border-radius:10px;color:var(--ink);text-decoration:none;font-weight:560}
 .sheet a:hover{background:var(--paper)}
 @media (max-width:1020px){.nav{display:none}.menu{display:block}}
@@ -86,7 +86,8 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 /* ---------- hero ---------- */
 .hero{padding:clamp(28px,6vw,80px) 0 40px}
 .hero-card{background:var(--surface);border-radius:calc(var(--radius) + 8px);padding:clamp(24px,5vw,64px);position:relative;overflow:hidden;border:1px solid var(--line)}
-.hub{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:32px}
+.hub{display:flex;gap:10px;margin-top:32px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.hub>a{flex:1 0 190px;max-width:320px;scroll-snap-align:start}
 .hub a{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:96px;padding:16px 18px;border-radius:var(--radius);text-decoration:none;color:inherit;background:color-mix(in srgb,var(--ink) 5%,transparent);border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);transition:background .15s}
 .hub a:hover{background:color-mix(in srgb,var(--ink) 10%,transparent)}
 .hub .n{font:500 12px var(--mono);color:var(--muted)}
@@ -95,7 +96,7 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 @media (max-width:760px){
   /* Mobile: a horizontal slider, snapping per link. */
   .hub{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:28px calc(-1*clamp(24px,5vw,64px)) 0;padding:0 clamp(24px,5vw,64px) 6px;scroll-padding:0 clamp(24px,5vw,64px);scrollbar-width:thin}
-  .hub a{flex:0 0 auto;min-width:62%;scroll-snap-align:start}
+  .hub a{flex:0 0 auto;min-width:62%;max-width:320px;scroll-snap-align:start}
 }
 /* The cartouche (title block of a technical drawing). */
 .frame{position:relative}
