@@ -7,8 +7,8 @@
 :root{
   --paper:#f4f3ef;--paper-2:#ecebe5;--surface:#ffffff;--line:#dcdad3;--ink:#111111;--muted:#6b6b6b;
   --accent:#a10e2f;--accent-ink:#ffffff;--signal:#a10e2f;--signal-ink:#ffffff;
-  --body:"Inter",system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --display:"Space Grotesk","Inter",system-ui,sans-serif;
+  --body:"Archivo",system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --display:"Archivo",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
   --radius:14px;--max:1160px;--gut:16px;
   --tint:color-mix(in srgb,var(--accent) 10%,var(--surface));
