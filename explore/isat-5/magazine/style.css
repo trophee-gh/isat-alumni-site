@@ -1,0 +1,76 @@
+/* isat-5 — variante "magazine". Serif éditorial, papier crème, rouge d'accent. */
+:root{
+  --paper:#f4ecda; --ink:#2a2420; --red:#9e1b1b; --rule:#cdbf9e; --grey:#c9c2b4; --greytext:#6f685c;
+}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink); font-family:Georgia,Cambria,"Times New Roman",Times,serif;
+  line-height:1.55; overflow-x:hidden;
+}
+img,svg{max-width:100%}
+.wrap{max-width:46rem; margin:0 auto; padding:0 1.1rem;}
+
+.flash{
+  background:var(--red); color:var(--paper); text-align:center; font-size:.78rem; letter-spacing:.06em;
+  padding:.4rem .6rem; font-family:Georgia,serif; text-transform:uppercase;
+}
+
+header.masthead{border-bottom:4px double var(--ink); padding:1.4rem 0 .8rem;}
+.kicker{color:var(--red); text-transform:uppercase; letter-spacing:.14em; font-size:.75rem; margin:0 0 .3rem;}
+h1.title{font-size:2.1rem; margin:0; letter-spacing:.01em; font-weight:400; text-wrap:balance;}
+nav.pages{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; border-top:1px solid var(--rule); padding-top:.7rem;}
+nav.pages a{
+  font-family:Georgia,serif; font-style:italic; color:var(--ink); text-decoration:none;
+  min-height:44px; display:inline-flex; align-items:center; padding:0 .4rem; border-bottom:2px solid transparent;
+}
+nav.pages a:hover,nav.pages a[aria-current]{border-color:var(--red)}
+
+main{padding:1.6rem 0 2.2rem}
+.standfirst{font-size:1.15rem; color:#443d35; border-left:3px solid var(--red); padding-left:.8rem; margin:0 0 1.6rem;}
+.byline{font-style:italic; color:var(--greytext); font-size:.9rem; margin:0 0 1.6rem}
+article p{margin:0 0 1.1rem; font-size:1.05rem}
+article p:first-of-type::first-letter{
+  float:left; font-size:3.4rem; line-height:.85; padding:.08em .1em 0 0; color:var(--red);
+}
+blockquote.pull{
+  font-size:1.3rem; font-style:italic; color:var(--red); border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule); padding:.8rem 0; margin:1.6rem 0; text-wrap:balance;
+}
+.caveat{display:block; font-style:italic; font-size:.78rem; color:var(--greytext); margin-top:.2rem}
+
+.portrait{
+  background:var(--grey); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center;
+  color:#54504a; font-size:.85rem; text-align:center; padding:.6rem; border:1px solid #b7af9e;
+}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr)); gap:1.4rem 1rem; margin:1.4rem 0}
+.card h3{margin:.6rem 0 .1rem; font-size:1rem; font-weight:700}
+.card p{margin:0; font-size:.88rem; color:#4a443c}
+.role{color:var(--red); font-style:italic; font-size:.85rem}
+
+.box{border:1px solid var(--ink); padding:1rem 1.1rem; margin:1.4rem 0}
+.box h2{margin-top:0; font-size:1.05rem}
+.addr{
+  font-size:1.15rem; font-weight:700; word-break:break-word; overflow-wrap:anywhere; background:var(--paper);
+  border:1px dashed var(--ink); padding:.6rem .7rem; display:block; margin:.7rem 0;
+}
+button,.btn,select{
+  font-family:Georgia,serif; font-size:1rem; min-height:44px; display:inline-flex; align-items:center;
+  justify-content:center; gap:.4rem; padding:0 1rem; background:var(--red); color:var(--paper);
+  border:1px solid var(--red); cursor:pointer; text-decoration:none;
+}
+button:hover,.btn:hover{background:#7e1414}
+.status{font-size:.85rem; color:var(--greytext); min-height:1.2rem}
+
+footer{border-top:4px double var(--ink); padding:1.4rem 0 2rem; font-size:.9rem}
+footer a{color:var(--ink)}
+.corner{
+  border:1px solid var(--rule); background:#efe4cc; padding:.9rem 1rem; margin-top:1rem;
+}
+.corner h2{margin:0 0 .4rem; font-size:.95rem; text-transform:uppercase; letter-spacing:.05em}
+.linklist{display:flex; flex-wrap:wrap; gap:.6rem; margin:.6rem 0 0; padding:0; list-style:none}
+.linklist a{
+  min-height:44px; display:inline-flex; align-items:center; padding:0 .8rem; border:1px solid var(--ink);
+  text-decoration:none; color:var(--ink); background:var(--paper);
+}
+.tbd{color:var(--greytext); font-style:italic}

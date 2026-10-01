@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emploi — Association des ingénieurs de l'ISAT / Jobs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="explore-banner">Variante d'exploration isat-5 — contenu provisoire <span class="en">(exploration draft — placeholder content)</span></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Association des ingénieurs de l'ISAT</a>
+    <nav class="main" aria-label="Navigation principale / Main navigation">
+      <a href="index.html">Accueil · Home</a>
+      <a href="equipe.html">Équipe · Team</a>
+      <a href="emploi.html" aria-current="page">Emploi · Jobs</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="bi">
+    <div class="col" lang="fr">
+      <h1>Offres d'emploi et de stage</h1>
+      <p class="lead">Les ingénieurs ISAT sont de bons candidats pour l'industrie automobile, et
+      plus largement pour toute organisation. 707 diplômés (21 %) se disent prêts à être
+      sollicités pour une offre <span class="tag archive">archive, à confirmer</span>.
+      L'association relaie les offres reçues auprès d'eux.</p>
+      <h2>Nous contacter</h2>
+      <p>Pour transmettre une offre, écrivez à l'adresse ci-dessous.</p>
+      <div class="mailbox">
+        <code id="email-fr">emploi@alumni-isat.fr</code>
+        <button type="button" class="btn" id="copy-fr">Copier l'adresse</button>
+      </div>
+      <p class="copy-feedback" id="feedback-fr" aria-live="polite"></p>
+      <p class="lorem">Un formulaire de contact nécessiterait un service tiers ou un serveur, hors
+      du cadrage statique du site ; cette page — adresse lisible et copiable — en est le minimum.</p>
+    </div>
+    <div class="col" lang="en">
+      <h1>Job and internship offers</h1>
+      <p class="lead">ISAT graduates are strong candidates for the automotive industry, and more
+      broadly for any organisation. 707 graduates (21%) say they are open to being contacted for
+      an offer <span class="tag archive">archive, to confirm</span>. The association relays
+      offers it receives to them.</p>
+      <h2>Contact us</h2>
+      <p>To forward an offer, write to the address below.</p>
+      <div class="mailbox">
+        <code id="email-en">emploi@alumni-isat.fr</code>
+        <button type="button" class="btn" id="copy-en">Copy the address</button>
+      </div>
+      <p class="copy-feedback" id="feedback-en" aria-live="polite"></p>
+      <p class="lorem">A contact form would need a server or a third-party service, outside the
+      site's static scope; this page — a readable, copyable address — is the floor.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <nav aria-label="Pied de page / Footer">
+      <a href="#" aria-label="LinkedIn de l'association, lien à venir / association LinkedIn, link to come">LinkedIn (lien TBD · link TBD)</a>
+      <a href="#" aria-label="HelloAsso, lien à venir / HelloAsso, link to come">Soutenir · Support (HelloAsso, lien TBD · link TBD)</a>
+    </nav>
+    <p>Association des ingénieurs de l'ISAT — contenu d'exploration, non définitif. / Exploration
+    content, not final.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function wire(addrId, btnId, fbId, okText, failText){
+    var addr = document.getElementById(addrId).textContent;
+    var btn = document.getElementById(btnId);
+    var fb = document.getElementById(fbId);
+    btn.addEventListener('click', function(){
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(function(){ fb.textContent = okText; }, function(){ fb.textContent = failText; });
+      } else {
+        fb.textContent = failText;
+      }
+    });
+  }
+  wire('email-fr','copy-fr','feedback-fr','Adresse copiée.','Copie impossible : sélectionnez le texte manuellement.');
+  wire('email-en','copy-en','feedback-en','Address copied.','Could not copy: please select the text manually.');
+})();
+</script>
+</body>
+</html>

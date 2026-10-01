@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISAT Alumni — carte-monde (exploration isat-5)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="banner">Variante d'exploration isat-5 — contenu provisoire</div>
+<header class="site">
+  <span class="brand">ISAT ALUMNI</span>
+  <nav>
+    <a href="#carte">La carte</a>
+    <a href="#association">L'association</a>
+    <a href="#liens">Rejoindre</a>
+    <a href="emploi.html">Offres d'emploi</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="hero">
+  <p class="kicker">carte-monde — exploration isat-5</p>
+  <h1>Des ingénieurs ISAT, <span class="proud">partout où l'automobile se joue.</span></h1>
+  <p class="lead">L'association des ingénieurs de l'ISAT existe, elle est active, et ses diplômés
+    portent l'identité automobile de l'école bien au-delà de Nevers. Candidats solides dans
+    l'automobile, et au-delà, dans toute organisation qui recrute de l'ingénierie.</p>
+  <div class="placeholder-img">Photo à venir</div>
+</section>
+
+<section id="carte">
+  <h2>Où sont les anciens</h2>
+  <p>Une carte du monde, à l'échelle de la planète : non pas des fiches individuelles, mais la seule
+    chose que l'archive permet d'affirmer aujourd'hui — où, en agrégat, le réseau se trouve.</p>
+  <div class="svg-wrap">
+    <svg id="world-svg" viewBox="0 0 1000 440" role="img"
+      aria-label="Carte schématique, non géographique, de la répartition agrégée des anciens dans le monde"></svg>
+    <noscript><p>Carte interactive désactivée (JavaScript requis). Voir les chiffres ci-dessous.</p></noscript>
+  </div>
+  <p class="dot-note">Carte schématique — une disposition abstraite par continent, pas une
+    projection géographique exacte. Chaque point n'identifie personne ; seuls les agrégats par pays
+    sont connus.</p>
+
+  <div class="panel">
+    <h3>Ce que l'archive dit, en agrégat</h3>
+    <div class="stat-row">
+      <div class="stat"><b>≈15 %</b><span>des anciens localisés sont à l'étranger</span></div>
+      <div class="stat"><b>36</b><span>pays hors France représentés</span></div>
+      <div class="stat"><b>49 %</b><span>de la base a une localisation connue</span></div>
+    </div>
+    <p>Pays en tête (hors France) :</p>
+    <ul class="countries">
+      <li>Allemagne</li><li>Belgique</li><li>Royaume-Uni</li><li>Suisse</li>
+      <li>Espagne</li><li>États-Unis</li><li>Canada</li>
+    </ul>
+    <p class="source">source : fichier de l'école / archive, à confirmer</p>
+  </div>
+
+  <div class="panel">
+    <h3>Fiches opt-in à venir</h3>
+    <p>Cette carte ne montre et ne montrera que des agrégats : aucun point n'est une personne, aucune
+      position n'est une adresse. Les fiches individuelles de l'annuaire — nom, promo, programme,
+      lien LinkedIn — restent un développement séparé, strictement opt-in, à venir. La présence au
+      fichier de l'école n'est pas un consentement à publier.</p>
+  </div>
+
+  <div class="ruling">
+    <strong>Note d'exploration.</strong> Une carte, même réduite à des agrégats sans fiche
+    individuelle, rouvre la décision 010 (v1 : pas de carte). Cette page explore la direction pour
+    la comparaison ; elle n'est pas, en l'état, destinée à être publiée.
+  </div>
+</section>
+
+<section id="association">
+  <h2>L'association, aujourd'hui</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. L'association tient le lien entre
+    l'école et ses diplômés : des rencontres avec les étudiants, des intervenants pour les
+    conférences, les nouvelles de l'école relayées aux anciens, les offres d'emploi et de stage, et
+    la mise à jour du fichier des anciens. Sed do eiusmod tempor incididunt ut labore.</p>
+</section>
+
+<section id="liens">
+  <h2>Rejoindre le réseau</h2>
+  <div class="tiles">
+    <div class="tile">
+      <a class="tile-cta" href="#">LinkedIn (lien TBD)</a>
+      <span>Le fil de l'association au quotidien.</span>
+    </div>
+    <div class="tile">
+      <strong>Annuaire</strong>
+      <span>Fiches opt-in à venir — voir la carte ci-dessus.</span>
+    </div>
+    <div class="tile">
+      <a class="tile-cta" href="emploi.html">Offres d'emploi</a>
+      <span>Les offres reçues par l'association, relayées aux anciens.</span>
+    </div>
+    <div class="tile tbd">
+      <a class="tile-cta" href="#">HelloAsso (lien TBD)</a>
+      <span>Adhérer et soutenir l'association.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <p>Association des ingénieurs de l'ISAT — exploration isat-5, variante carte-monde.</p>
+  <p><a href="emploi.html">Offres d'emploi</a></p>
+</footer>
+
+<script>
+(function () {
+  var svg = document.getElementById("world-svg");
+  if (!svg) return;
+  var ns = "http://www.w3.org/2000/svg";
+  function mulberry32(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  var rand = mulberry32(42);
+  var continents = [
+    { cx: 150, cy: 150, rx: 110, ry: 70, n: 30 },
+    { cx: 230, cy: 330, rx: 65, ry: 90, n: 16 },
+    { cx: 480, cy: 120, rx: 58, ry: 42, n: 14 },
+    { cx: 480, cy: 270, rx: 80, ry: 110, n: 22 },
+    { cx: 690, cy: 140, rx: 165, ry: 90, n: 34 },
+    { cx: 830, cy: 350, rx: 55, ry: 36, n: 10 }
+  ];
+  continents.forEach(function (c) {
+    for (var i = 0; i < c.n; i++) {
+      var a = rand() * 2 * Math.PI, r = Math.sqrt(rand());
+      var x = c.cx + Math.cos(a) * r * c.rx;
+      var y = c.cy + Math.sin(a) * r * c.ry;
+      var dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x.toFixed(1));
+      dot.setAttribute("cy", y.toFixed(1));
+      dot.setAttribute("r", "2.6");
+      dot.setAttribute("class", "dot");
+      svg.appendChild(dot);
+    }
+  });
+  var leads = [
+    { x: 460, y: 108, name: "France" },
+    { x: 474, y: 118, name: "Allemagne" },
+    { x: 452, y: 130, name: "Belgique" },
+    { x: 432, y: 96, name: "Royaume-Uni" },
+    { x: 468, y: 142, name: "Suisse" },
+    { x: 440, y: 152, name: "Espagne" },
+    { x: 90, y: 132, name: "États-Unis" },
+    { x: 120, y: 96, name: "Canada" }
+  ];
+  leads.forEach(function (p) {
+    var dot = document.createElementNS(ns, "circle");
+    dot.setAttribute("cx", p.x);
+    dot.setAttribute("cy", p.y);
+    dot.setAttribute("r", "5.5");
+    dot.setAttribute("class", "dot lead");
+    var title = document.createElementNS(ns, "title");
+    title.textContent = p.name;
+    dot.appendChild(title);
+    svg.appendChild(dot);
+  });
+})();
+</script>
+</body>
+</html>

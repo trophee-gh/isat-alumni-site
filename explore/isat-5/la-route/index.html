@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La route — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="explore-banner">Variante d'exploration isat-5 — contenu provisoire</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#depart">Association des ingénieurs de l'ISAT</a>
+    <nav class="main" aria-label="Étapes de la route">
+      <a href="#km0">École</a>
+      <a href="#km1">Diplômés</a>
+      <a href="#km2">Association</a>
+      <a href="#km3">Réseau</a>
+      <a href="#km4">Emploi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="depart">
+    <div class="wrap">
+      <p class="eyebrow">Carnet de route</p>
+      <h1>De l'amphi de Nevers aux ateliers du monde entier</h1>
+      <p class="lead">Une association longtemps en veilleuse reprend la route. Cinq étapes, un
+      même fil : des ingénieurs formés pour l'automobile et les transports, fiers de leur école,
+      utiles à n'importe quelle organisation qui les embauche.</p>
+    </div>
+  </section>
+
+  <div class="timeline wrap">
+
+    <section class="chapter" id="km0">
+      <div class="km-marker" aria-hidden="true">KM<br>0</div>
+      <div class="chapter-body">
+        <h2>L'école</h2>
+        <p>L'ISAT, à Nevers, se présente comme la seule école publique d'ingénieurs spécialisée
+        automobile et transports <span class="tag unverified">non vérifié</span>, fondée en 1991
+        <span class="tag unverified">non vérifié</span>, avec un second site à Auxerre
+        <span class="tag unverified">non vérifié</span>. C'est le point de départ de chaque
+        diplômé : cycle préparatoire, cycle ingénieur en formation initiale ou par apprentissage,
+        master, doctorat.</p>
+        <div class="placeholder-box">Photo à venir — campus de Nevers</div>
+      </div>
+    </section>
+
+    <section class="chapter" id="km1">
+      <div class="km-marker" aria-hidden="true">KM<br>1</div>
+      <div class="chapter-body">
+        <h2>Les diplômés</h2>
+        <p>2 672 diplômés entre 1996 et 2022, cinq programmes confondus (ISAT, IRIT, AESM, Master
+        Meeting, GI Auxerre) <span class="tag archive">source : fichier de l'école / archive, à
+        confirmer</span>. Les promotions grossissent : d'une trentaine en 1996 à plus de 130 depuis
+        2020 <span class="tag archive">source : fichier de l'école / archive, à confirmer</span>.
+        Chaque promotion est un kilomètre de plus sur cette route.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="km2">
+      <div class="km-marker" aria-hidden="true">KM<br>2</div>
+      <div class="chapter-body">
+        <h2>L'association</h2>
+        <p>L'Association des ingénieurs de l'ISAT tient la route avec une petite équipe : six
+        personnes au cœur de son fonctionnement <span class="tag archive">source : fichier de
+        l'école / archive, à confirmer</span>. 110 adhérents à jour de cotisation, 758 anciens
+        adhérents, 2 544 diplômés jamais adhérents <span class="tag archive">source : fichier de
+        l'école / archive, à confirmer</span> — la relance est tout le sens de cette feuille de
+        route. Elle rencontre les étudiants de 4e et 5e année, fournit des intervenants pour les
+        conférences, relaie les nouvelles de l'école et les offres d'emploi, et tient le fichier des
+        diplômés à jour.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="km3">
+      <div class="km-marker" aria-hidden="true">KM<br>3</div>
+      <div class="chapter-body">
+        <h2>Le réseau</h2>
+        <p>2 059 adresses joignables, environ 15 % des diplômés localisés à l'étranger dans 36 pays
+        en dehors de la France <span class="tag archive">source : fichier de l'école / archive, à
+        confirmer</span>. Le réseau vit surtout au jour le jour sur LinkedIn.</p>
+        <p><a class="btn secondary" href="#" aria-label="LinkedIn de l'association, lien à venir">LinkedIn (lien TBD)</a></p>
+      </div>
+    </section>
+
+    <section class="chapter" id="km4">
+      <div class="km-marker" aria-hidden="true">KM<br>4</div>
+      <div class="chapter-body">
+        <h2>L'emploi</h2>
+        <p>707 diplômés, soit 21 % des répondants, se disent prêts à être sollicités pour des
+        offres d'emploi <span class="tag archive">source : fichier de l'école / archive, à
+        confirmer</span>. Les ingénieurs ISAT sont de bons candidats pour l'industrie automobile,
+        et plus largement pour toute organisation. L'association relaie les offres reçues.</p>
+        <div class="mailbox">
+          <code id="email-address">emploi@alumni-isat.fr</code>
+          <button type="button" class="btn" id="copy-btn">Copier l'adresse</button>
+        </div>
+        <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <p class="arrival">Arrivée — et la route continue.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <nav aria-label="Navigation de pied de page">
+      <a href="#depart">Haut de page</a>
+      <a href="#" aria-label="LinkedIn de l'association, lien à venir">LinkedIn (lien TBD)</a>
+      <a href="#" aria-label="HelloAsso, lien à venir">Soutenir (HelloAsso, lien TBD)</a>
+    </nav>
+    <p>Association des ingénieurs de l'ISAT — contenu d'exploration, non définitif.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy-btn');
+  var fb = document.getElementById('copy-feedback');
+  var addr = document.getElementById('email-address').textContent;
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function(){
+        fb.textContent = 'Adresse copiée.';
+      }, function(){
+        fb.textContent = 'Copie impossible : sélectionnez le texte manuellement.';
+      });
+    } else {
+      fb.textContent = 'Copie impossible : sélectionnez le texte manuellement.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

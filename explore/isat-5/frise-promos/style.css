@@ -1,0 +1,34 @@
+:root{--navy:#0f1f3d;--white:#ffffff;--paper:#f3f5f8;--line:#c7ccd6;--ink:#1a1a1a}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--white);color:var(--ink);line-height:1.5}
+.bandeau{margin:0;padding:8px 16px;background:#f2c94c;color:#3a2e00;font-size:.85rem;text-align:center}
+.site-header{background:var(--navy);color:var(--white);padding:16px}
+.wordmark{margin:0 0 8px;font-weight:700;letter-spacing:.02em;font-size:1rem}
+.site-nav{display:flex;gap:16px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.site-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--white);text-decoration:none;font-weight:600;padding:0 4px}
+.site-nav a[aria-current="page"]{text-decoration:underline}
+main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+h1{color:var(--navy);font-size:1.6rem;margin:0 0 12px}
+h2{color:var(--navy);font-size:1.2rem;margin:0 0 8px}
+.lede{color:#444;max-width:60ch}
+.frise{list-style:none;margin:32px 0;padding:0 0 0 24px;border-left:3px solid var(--navy);display:grid;gap:28px}
+.frise li{position:relative}
+.frise li::before{content:"";position:absolute;left:-30px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--navy)}
+.frise li.tbd::before{background:var(--white);border:2px solid var(--line)}
+.frise li.jalon::before{background:var(--white);border:3px solid var(--navy)}
+.frise time{display:block;font-weight:700;color:var(--navy)}
+.frise .chiffre{margin:4px 0;font-size:1.05rem}
+.frise .source{margin:2px 0 0;font-size:.8rem;color:#666;font-style:italic}
+.frise li.tbd .chiffre{color:#888}
+.photo{background:var(--paper);border:1px dashed var(--line);color:#777;display:flex;align-items:center;justify-content:center;height:160px;margin:16px 0;font-size:.9rem}
+.pourquoi ul{padding-left:20px;max-width:60ch}
+.lien-linkedin{display:inline-flex;align-items:center;min-height:44px;color:var(--navy);font-weight:700;text-decoration:none;border:2px solid var(--navy);padding:0 16px;border-radius:4px}
+.lien-linkedin:hover{background:var(--navy);color:var(--white)}
+.contact{margin-top:24px}
+.adresse{margin:0 0 12px}
+.adresse code{font-size:1.2rem;background:var(--paper);padding:8px 12px;border-radius:4px;display:inline-block;word-break:break-word}
+button#copier{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--navy);color:var(--white);border:none;border-radius:4px;font-weight:600;font-size:1rem;cursor:pointer}
+button#copier:hover{background:#17305c}
+#statut{min-height:1.2em;color:#2d6a2d;font-size:.9rem}
+footer{background:var(--paper);padding:16px;font-size:.85rem;color:#555}
+footer a{color:var(--navy)}

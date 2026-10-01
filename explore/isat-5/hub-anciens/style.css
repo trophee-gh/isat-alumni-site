@@ -1,0 +1,127 @@
+/* hub-anciens — warm echo of the school, hub-first grid */
+:root {
+  --navy: #0b2a4a;
+  --navy-deep: #081d33;
+  --white: #ffffff;
+  --cream: #fbf6ee;
+  --warm: #d9772f;
+  --warm-deep: #b55e1f;
+  --line: #e4d9c6;
+  --muted: #5d6c7c;
+  font-size: 18px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--cream);
+  color: var(--navy-deep);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+.banner {
+  background: var(--navy);
+  color: var(--cream);
+  text-align: center;
+  font-size: .85rem;
+  padding: .5em 1em;
+}
+header.site {
+  background: var(--white);
+  border-bottom: 3px solid var(--warm);
+  padding: .9em 1.2em;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .6em 1.4em;
+}
+header.site .brand { font-weight: 800; letter-spacing: .03em; color: var(--navy); font-size: 1.1rem; }
+header.site nav { display: flex; gap: 1em; }
+header.site nav a {
+  color: var(--navy); text-decoration: none; font-weight: 600;
+  min-height: 44px; display: inline-flex; align-items: center;
+}
+header.site nav a:hover { color: var(--warm-deep); }
+main { max-width: 1040px; margin: 0 auto; padding: 0 1.2em; }
+
+.showcase {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--cream);
+  margin: 1.4em -1.2em 0;
+  padding: 2.4em 1.4em;
+  border-radius: 0 0 18px 18px;
+}
+.showcase .kicker { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--warm); }
+.showcase h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin: .25em 0; line-height: 1.2; }
+.showcase p { max-width: 42em; color: #ebe3d4; }
+.strip { display: flex; gap: 1em; overflow-x: auto; margin-top: 1.4em; padding-bottom: .3em; }
+.strip .card {
+  flex: 0 0 auto; width: 9.5em;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 10px;
+  padding: .9em;
+}
+.strip .placeholder-img {
+  background: rgba(255,255,255,.12);
+  border: 1px dashed rgba(255,255,255,.3);
+  border-radius: 6px;
+  height: 4.2em;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .72rem; color: #ddd2bd;
+  margin-bottom: .5em;
+}
+.strip .card b { display: block; font-size: 1.1rem; color: var(--warm); }
+.strip .card span { font-size: .78rem; color: #cfc6b4; }
+
+.hub { padding: 2.4em 0 3em; }
+.hub h2 { color: var(--navy); font-size: 1.4rem; margin-bottom: .2em; }
+.hub p.intro { color: var(--muted); max-width: 42em; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); gap: 1.1em; margin-top: 1.3em; }
+.tile {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--warm);
+  border-radius: 10px;
+  padding: 1.3em 1.4em;
+  display: flex; flex-direction: column; gap: .5em;
+  min-height: 9.5em;
+}
+.tile.muted { border-left-color: var(--line); }
+.tile p { margin: 0; color: var(--muted); font-size: .92rem; flex-grow: 1; }
+a.tile-cta {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--navy); font-weight: 800; font-size: 1.1rem; text-decoration: none;
+}
+a.tile-cta:hover { color: var(--warm-deep); }
+.tile strong.label { font-weight: 800; font-size: 1.1rem; color: var(--navy); }
+
+footer.site {
+  border-top: 1px solid var(--line);
+  padding: 2em 1.2em 3em;
+  font-size: .85rem;
+  color: var(--muted);
+}
+footer.site a { color: var(--navy); min-height: 44px; display: inline-flex; align-items: center; font-weight: 600; }
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.2em 1.4em;
+  margin: 1.4em 0;
+}
+.copybar { display: flex; flex-wrap: wrap; align-items: center; gap: .8em; }
+button.copy {
+  min-height: 44px;
+  background: var(--warm);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0 1.2em;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+button.copy:hover { background: var(--warm-deep); }
+code.addr { font-size: 1.05rem; user-select: all; }
+.status { font-size: .85rem; color: var(--muted); min-height: 1.4em; }
+.verif { font-size: .78rem; color: var(--muted); }
+.lead { font-size: 1.05rem; }

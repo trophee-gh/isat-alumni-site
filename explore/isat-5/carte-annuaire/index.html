@@ -1,0 +1,160 @@
+<!doctype html>
+<!-- Variante d'exploration isat-5 — contenu provisoire. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annuaire sur carte (exploration) — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="banniere">Variante d'exploration isat-5 — contenu provisoire, aucune donnée réelle.</p>
+
+<header class="entete">
+  <div class="cadre">
+    <a class="marque" href="index.html">
+      <span class="marque-haut">Association des ingénieurs de</span>
+      <span class="marque-nom">l'ISAT</span>
+    </a>
+    <nav class="principale" aria-label="Principale">
+      <ul>
+        <li><a href="index.html" aria-current="page">Accueil — annuaire</a></li>
+        <li><a href="emploi.html">Offres d'emploi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="cadre">
+    <div class="intro">
+      <h1>Où sont les diplômé·es de l'ISAT ?</h1>
+      <p>L'annuaire est <strong>opt-in</strong> : chaque diplômé·e choisit d'y figurer et choisit ce
+      qu'il montre. Ce qui suit est une exploration de direction — <strong>aucune des fiches
+      affichées n'est réelle</strong>, et l'annuaire publié aujourd'hui compte 0 entrée (source :
+      fichier de l'association, à confirmer).</p>
+      <p class="lorem">Lorem ipsum dolor sit amet : un paragraphe d'accroche sur l'association et son
+      ancrage automobile prendra place ici une fois rédigé.</p>
+    </div>
+
+    <section class="carte-section" aria-labelledby="titre-carte">
+      <h2 id="titre-carte" class="sr-only" style="position:absolute;left:-9999px;">Carte et filtres de l'annuaire</h2>
+
+      <div class="panneau-filtres">
+        <div class="champ">
+          <label for="filtre-promo">Promo</label>
+          <select id="filtre-promo">
+            <option value="">Toutes les promos</option>
+            <option value="2015">2015</option>
+            <option value="2018">2018</option>
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+          </select>
+        </div>
+        <div class="champ">
+          <label for="filtre-secteur">Secteur</label>
+          <select id="filtre-secteur" disabled>
+            <option value="">Tous les secteurs</option>
+          </select>
+          <span class="note-champ">Filtre prévu, vide pour l'instant : les données de secteur sont
+          trop peu renseignées dans l'archive (décision 014).</span>
+        </div>
+      </div>
+
+      <div class="zone-carte">
+        <svg viewBox="0 0 400 320" role="img" aria-labelledby="titreSvg descSvg">
+          <title id="titreSvg">Carte stylisée, en forme d'hexagone</title>
+          <desc id="descSvg">Illustration abstraite et non géographique. Chaque point est un exemple
+          fictif, sans lien avec une personne réelle.</desc>
+          <polygon points="200,16 368,104 368,232 200,312 32,232 32,104"
+                   fill="#0b2545" stroke="#ffffff" stroke-width="3"/>
+          <g data-promo="2015">
+            <circle class="pin-point" cx="150" cy="118" r="8"/>
+            <text class="pin-etiquette" x="150" y="100" text-anchor="middle">Promo 2015</text>
+          </g>
+          <g data-promo="2018">
+            <circle class="pin-point" cx="262" cy="150" r="8"/>
+            <text class="pin-etiquette" x="262" y="175" text-anchor="middle">Promo 2018</text>
+          </g>
+          <g data-promo="2020">
+            <circle class="pin-point" cx="178" cy="222" r="8"/>
+            <text class="pin-etiquette" x="178" y="245" text-anchor="middle">Promo 2020</text>
+          </g>
+          <g data-promo="2022">
+            <circle class="pin-point" cx="268" cy="238" r="8"/>
+            <text class="pin-etiquette" x="268" y="222" text-anchor="middle">Promo 2022</text>
+          </g>
+          <text x="200" y="300" text-anchor="middle" class="pin-etiquette" font-style="italic" opacity=".8">exemple fictif — aucune donnée réelle</text>
+        </svg>
+        <p class="legende-carte">Hexagone stylisé, pas une carte géographique. Points : exemples fictifs.</p>
+
+        <div class="bande-monde">
+          <h3>Monde</h3>
+          <ul>
+            <li>Europe — exemple fictif</li>
+            <li>Amérique du Nord — exemple fictif</li>
+            <li>Autre — exemple fictif</li>
+          </ul>
+          <p style="font-size:.75rem;margin:.5rem 0 0;opacity:.85;">Environ 15 % des diplômé·es
+          situé·es à l'étranger, dans 36 pays (source : fichier de l'école / archive, à confirmer).</p>
+        </div>
+      </div>
+
+      <div class="liste-repli">
+        <h2>Liste (repli téléphone)</h2>
+        <p class="aide">Même contenu que la carte, en liste — plus simple à parcourir au doigt.</p>
+        <ul id="liste">
+          <li data-promo="2015">
+            <span class="fiche-nom">Promo 2015</span> · ISAT <span class="badge-fictif">exemple fictif</span>
+            <a class="fiche-lien" href="#">LinkedIn (lien TBD)</a>
+          </li>
+          <li data-promo="2018">
+            <span class="fiche-nom">Promo 2018</span> · IRIT <span class="badge-fictif">exemple fictif</span>
+            <a class="fiche-lien" href="#">LinkedIn (lien TBD)</a>
+          </li>
+          <li data-promo="2020">
+            <span class="fiche-nom">Promo 2020</span> · AESM <span class="badge-fictif">exemple fictif</span>
+            <a class="fiche-lien" href="#">LinkedIn (lien TBD)</a>
+          </li>
+          <li data-promo="2022">
+            <span class="fiche-nom">Promo 2022</span> · ISAT <span class="badge-fictif">exemple fictif</span>
+            <a class="fiche-lien" href="#">LinkedIn (lien TBD)</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="encadre">
+      <h2>Pourquoi une carte ?</h2>
+      <p>La décision 010 (version 1) ne prévoit pas de carte. Cette page explore volontairement une
+      direction qui la contredit : si elle est retenue, 010 doit être rouverte et actée à nouveau —
+      ce n'est pas le cas ici. Rien sur cette page n'est destiné à être publié tel quel.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="pied">
+  <div class="cadre">
+    <div class="boutons">
+      <a class="bouton-pied vedette" href="emploi.html">Offres d'emploi</a>
+      <a class="bouton-pied" href="#">HelloAsso <small>(lien TBD)</small></a>
+      <a class="bouton-pied" href="#">LinkedIn <small>(lien TBD)</small></a>
+    </div>
+    <p class="mentions">Exploration isat-5 — contenu provisoire. Aucune personne réelle n'est
+    représentée sur cette page. Chiffres d'association : source fichier de l'école / archive, à
+    confirmer.</p>
+  </div>
+</footer>
+
+<script>
+  var select = document.getElementById('filtre-promo');
+  select.addEventListener('change', function () {
+    var valeur = select.value;
+    document.querySelectorAll('[data-promo]').forEach(function (el) {
+      var correspond = !valeur || el.getAttribute('data-promo') === valeur;
+      el.classList.toggle('cache', !correspond);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+:root{--black:#111111;--white:#ffffff;--red:#d7001c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--black);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:700}
+.bandeau{margin:0;background:var(--red);color:var(--white);text-align:center;padding:8px 16px;font-size:.8rem;font-weight:700;letter-spacing:.02em}
+.site-header{border-bottom:4px solid var(--black);padding:16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
+.wordmark{font-size:.95rem;letter-spacing:.06em;margin:0;text-transform:uppercase}
+.sections{display:flex;gap:4px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.sections a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--black);text-decoration:none;font-weight:700;letter-spacing:.02em;text-transform:uppercase;border:2px solid transparent}
+.sections a[aria-current="page"]{border-color:var(--black)}
+.sections a:hover{background:var(--black);color:var(--white)}
+main{padding:0 16px;max-width:900px;margin:0 auto}
+.grille{border-top:2px solid var(--black)}
+.statement{border-bottom:2px solid var(--black);padding:20px 0}
+.enonce{font-size:clamp(2rem,9vw,4.2rem);line-height:1.02;margin:0;text-transform:uppercase;letter-spacing:-0.01em}
+.accent{color:var(--red)}
+.para{font-size:1rem;font-weight:400;max-width:60ch;margin:16px 0}
+.photo{height:140px;border:2px dashed var(--black);display:flex;align-items:center;justify-content:center;font-weight:400;color:#555;margin:20px 0}
+.lien{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:3px solid var(--black);text-decoration:none;color:var(--black);font-weight:700;text-transform:uppercase;margin:8px 0}
+.lien:hover{background:var(--black);color:var(--white)}
+.fiche{border-top:2px solid var(--black);padding:20px 0}
+.fiche h2{font-size:clamp(1.5rem,5.5vw,2.4rem);text-transform:uppercase;margin:0 0 8px;line-height:1.05}
+.fiche p{margin:4px 0;font-size:1.05rem;font-weight:400;max-width:65ch}
+.fiche .note{font-size:.75rem;color:#555}
+.contact{margin:24px 0}
+.adresse{font-size:clamp(1.2rem,5vw,1.8rem);word-break:break-word;margin:12px 0}
+button#copier{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--black);color:var(--white);border:3px solid var(--black);font-weight:700;text-transform:uppercase;font-size:1rem;cursor:pointer}
+button#copier:hover{background:var(--red);border-color:var(--red)}
+#statut{min-height:1.2em;font-weight:400;font-size:.9rem}
+footer.page-nav{border-top:4px solid var(--black);padding:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:8px}
+footer.page-nav a,footer.page-nav span{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none;color:var(--black);text-transform:uppercase}
+footer.page-nav a:hover{color:var(--red)}

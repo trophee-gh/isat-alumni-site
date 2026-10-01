@@ -1,0 +1,133 @@
+/* prestige — premium automotive brochure, racing green + brass, fiche technique */
+:root{
+  --bg:#0c1a13;
+  --panel:#122419;
+  --ink:#ece4d2;
+  --ink-soft:#b7ad96;
+  --brass:#c9a227;
+  --brass-soft:#8d793f;
+  --line:rgba(201,162,39,0.38);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Georgia,"Palatino Linotype",Palatino,"Book Antiqua",serif;
+  line-height:1.65;
+}
+.explore-banner{
+  background:var(--brass);
+  color:#1a1407;
+  text-align:center;
+  font-size:0.78rem;
+  letter-spacing:0.04em;
+  padding:6px 8px;
+  font-family:Georgia,serif;
+}
+.wrap{max-width:740px;margin:0 auto;padding:0 24px;}
+header.site{padding:36px 0 18px;border-bottom:1px solid var(--line);}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;}
+.brand{
+  color:var(--brass);
+  text-decoration:none;
+  font-style:italic;
+  font-size:1.3rem;
+  letter-spacing:0.04em;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+}
+.lang-switch a{
+  color:var(--ink-soft);
+  text-decoration:none;
+  font-size:0.9rem;
+  border-bottom:1px solid var(--brass-soft);
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+}
+main{padding:40px 0 60px;}
+.hero{text-align:center;padding:30px 0 46px;}
+.hero .eyebrow{
+  color:var(--brass);
+  text-transform:uppercase;
+  letter-spacing:0.22em;
+  font-size:0.78rem;
+  margin:0 0 14px;
+}
+.hero h1{
+  font-size:2.3rem;
+  font-weight:400;
+  font-style:italic;
+  margin:0 0 18px;
+  color:var(--ink);
+}
+.hero .lead{
+  max-width:52ch;margin:0 auto;color:var(--ink-soft);font-size:1.05rem;
+}
+.spec{margin:54px 0;}
+.spec h2{
+  font-style:italic;
+  font-weight:400;
+  font-size:1.5rem;
+  color:var(--brass);
+  letter-spacing:0.02em;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+  margin:0 0 20px;
+}
+.spec-row{
+  display:flex;flex-wrap:wrap;gap:6px 24px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(201,162,39,0.16);
+}
+.spec-row dt{
+  flex:0 0 190px;
+  color:var(--ink-soft);
+  font-size:0.86rem;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  margin:0;
+}
+.spec-row dd{
+  flex:1 1 260px;
+  margin:0;
+  color:var(--ink);
+}
+.tag{
+  display:inline-block;
+  font-size:0.72rem;
+  font-style:italic;
+  color:var(--brass-soft);
+  border:1px solid var(--brass-soft);
+  padding:1px 7px;
+  margin-left:4px;
+}
+.lorem{color:var(--ink-soft);font-style:italic;}
+.caveat{color:var(--ink-soft);font-size:0.86rem;margin-top:8px;}
+.mailbox{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+  background:var(--panel);border:1px solid var(--line);
+  padding:18px 20px;margin-top:18px;
+}
+.mailbox code{color:var(--ink);font-size:1.02rem;font-family:Georgia,serif;}
+.btn{
+  background:transparent;color:var(--brass);border:1px solid var(--brass);
+  padding:8px 16px;cursor:pointer;font-family:Georgia,serif;font-style:italic;
+  min-height:44px;
+}
+.btn:hover{background:var(--brass);color:#1a1407;}
+.copy-feedback{font-size:0.86rem;color:var(--ink-soft);min-height:1.3em;margin-top:8px;}
+footer.site{
+  border-top:1px solid var(--line);
+  padding:26px 0 40px;
+}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center;}
+footer.site nav{display:flex;gap:16px;flex-wrap:wrap;}
+footer.site a{
+  color:var(--ink-soft);text-decoration:none;font-size:0.88rem;
+  min-height:44px;display:inline-flex;align-items:center;border-bottom:1px solid transparent;
+}
+footer.site a:hover{border-bottom-color:var(--brass);}
+footer.site p{color:var(--ink-soft);font-size:0.8rem;margin:0;}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Variante d'exploration isat-5 — contenu provisoire -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emploi — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="flash">Variante d'exploration isat-5 — contenu provisoire</p>
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Le journal des anciens · édition d'exploration</p>
+    <h1 class="title">Emploi</h1>
+    <nav class="pages" aria-label="Pages">
+      <a href="index.html">Le récit</a>
+      <a href="portraits.html">Portraits</a>
+      <a href="emploi.html" aria-current="page">Emploi</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="standfirst">Des ingénieurs ISAT trouvent leur voie dans l'automobile et bien
+    au-delà. L'association relaie les offres reçues par les anciens et les entreprises du
+    secteur.</p>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sept cent sept anciens — soit
+    vingt-et-un pour cent du fichier — se sont dits prêts à être sollicités pour des offres
+    d'emploi.
+    <span class="caveat">Source : fichier de l'école / archive, à confirmer.</span></p>
+
+  <div class="box">
+    <h2>Transmettre ou demander une offre</h2>
+    <p>Écrivez à l'association à l'adresse ci-dessous ; elle la relaiera auprès du réseau des
+      anciens.</p>
+    <code class="addr" id="addr">emploi@alumni-isat.fr</code>
+    <button type="button" id="copy">Copier l'adresse</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p><a class="btn" href="mailto:emploi@alumni-isat.fr">Ouvrir dans ma messagerie</a></p>
+  </div>
+
+  <p>Suivez aussi les actualités de l'association sur <a href="#">LinkedIn (lien TBD)</a>, où
+    les offres les plus récentes sont relayées au fil de l'eau.</p>
+</main>
+
+<footer class="wrap">
+  <p>Association des ingénieurs de l'ISAT — Nevers. Contenu d'exploration, aucune donnée
+    personnelle réelle.</p>
+  <div class="corner">
+    <h2>Le coin des anciens</h2>
+    <p>Cotiser ou soutenir l'association se fait désormais par HelloAsso.
+      <span class="tbd">Lien à confirmer.</span></p>
+    <ul class="linklist">
+      <li><a href="#">HelloAsso (lien TBD)</a></li>
+      <li><a href="#">LinkedIn (lien TBD)</a></li>
+      <li><a href="emploi.html">Offres d'emploi</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy');
+  var status = document.getElementById('status');
+  var addr = document.getElementById('addr').textContent;
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function(){
+        status.textContent = 'Adresse copiée.';
+      }, function(){
+        status.textContent = 'Copie impossible — sélectionnez le texte manuellement.';
+      });
+    } else {
+      status.textContent = 'Copie non disponible — sélectionnez le texte manuellement.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

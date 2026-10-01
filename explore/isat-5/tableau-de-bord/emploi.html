@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- Variante d'exploration isat-5 — contenu provisoire -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emploi — Association des ingénieurs de l'ISAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<p class="dashlight">Variante d'exploration isat-5 — contenu provisoire</p>
+<header class="cockpit">
+  <div class="wrap">
+    <span class="plate">ISAT · NEVERS · <span class="nonverif">fondée 1991, non vérifié</span></span>
+    <h1 class="brand">Emploi</h1>
+    <p class="tagline">Des ingénieurs recherchés dans l'automobile et bien au-delà.</p>
+    <nav class="ctrl" aria-label="Pages">
+      <a href="index.html">Tableau de bord</a>
+      <a href="emploi.html" aria-current="page">Emploi</a>
+      <a href="en.html">English</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2 class="section">Jauge de disponibilité</h2>
+  <div class="cluster">
+    <div class="gauge">
+      <svg viewBox="0 0 200 110" aria-hidden="true">
+        <path class="bg" d="M20,100 A80,80 0 0 1 180,100"/>
+        <path class="fg" d="M20,100 A80,80 0 0 1 180,100" stroke-dasharray="251.3" stroke-dashoffset="198.6"/>
+        <text x="100" y="92" text-anchor="middle" class="val">21%</text>
+      </svg>
+      <p class="label">707 anciens (21% du fichier) se sont dits prêts à être contactés pour des
+        offres d'emploi. <span class="caveat">Source : fichier de l'école / archive, à
+        confirmer.</span></p>
+    </div>
+    <div class="gauge empty">
+      <svg viewBox="0 0 200 110" aria-hidden="true">
+        <path class="bg" d="M20,100 A80,80 0 0 1 180,100"/>
+        <path class="fg" d="M20,100 A80,80 0 0 1 180,100" stroke-dasharray="4 6"/>
+        <text x="100" y="92" text-anchor="middle" class="val">à venir</text>
+      </svg>
+      <p class="label">Secteurs qui recrutent — jauge à venir. <span class="caveat">Donnée trop
+        éparse dans le fichier actuel — TBD.</span></p>
+    </div>
+  </div>
+
+  <h2 class="section">Transmettre ou demander une offre</h2>
+  <div class="box">
+    <p>Écrivez à l'association à l'adresse ci-dessous ; elle la relaiera auprès du réseau des
+      anciens.</p>
+    <code class="addr mono" id="addr">emploi@alumni-isat.fr</code>
+    <button type="button" id="copy">Copier l'adresse</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p><a class="btn" href="mailto:emploi@alumni-isat.fr">Ouvrir dans ma messagerie</a></p>
+  </div>
+
+  <p>Suivre l'association au quotidien : <a href="#">LinkedIn (lien TBD)</a>.</p>
+</main>
+
+<footer class="wrap">
+  <p>Association des ingénieurs de l'ISAT — Nevers. Contenu d'exploration, aucune donnée
+    personnelle réelle.</p>
+  <ul class="linklist">
+    <li><a href="#">HelloAsso (lien TBD)</a></li>
+    <li><a href="#">LinkedIn (lien TBD)</a></li>
+    <li><a href="index.html">Tableau de bord</a></li>
+    <li><a href="en.html">English</a></li>
+  </ul>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy');
+  var status = document.getElementById('status');
+  var addr = document.getElementById('addr').textContent;
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function(){
+        status.textContent = 'Adresse copiée.';
+      }, function(){
+        status.textContent = 'Copie impossible — sélectionnez le texte manuellement.';
+      });
+    } else {
+      status.textContent = 'Copie non disponible — sélectionnez le texte manuellement.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
