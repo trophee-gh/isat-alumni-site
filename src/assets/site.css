@@ -18,7 +18,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
-body{margin:0;color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:96px;
+body{margin:0;color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip;
   background-color:var(--paper);
   /* The very faint grid: 32 px, a line on the centre axis, so the framing lines (at ±19 cells) fall on it. */
   background-image:var(--grid-bg);
@@ -111,11 +111,11 @@ html.scroll-down .top:not(.is-static){transform:translateY(-101%)}
 .sec{padding:clamp(48px,8vw,104px) 0;border-top:1px solid var(--line);position:relative;
   /* The grid restarts on each section's top border, so its rows line up with it. */
   background-color:var(--paper);background-image:var(--grid-bg);background-size:32px 32px;background-position:calc(50% + 16px) 0;background-origin:border-box}
-.sec::before,.sec::after{content:"";position:absolute;top:-6px;width:11px;height:11px;z-index:2;
+.sec::before,.sec::after,.prevnext::before,.prevnext::after{content:"";position:absolute;top:-6px;width:11px;height:11px;z-index:2;
   background:linear-gradient(var(--accent),var(--accent)) center/100% 1.5px no-repeat,linear-gradient(var(--accent),var(--accent)) center/1.5px 100% no-repeat,var(--paper)}
-.sec::before{left:calc(50% - var(--max)/2 - var(--gut) - 5px)}
-.sec::after{right:calc(50% - var(--max)/2 - var(--gut) - 6px)}
-@media (max-width:1240px){.sec::before,.sec::after{display:none}}
+.sec::before,.prevnext::before{left:calc(50% - var(--max)/2 - var(--gut) - 5px)}
+.sec::after,.prevnext::after{right:calc(50% - var(--max)/2 - var(--gut) - 6px)}
+@media (max-width:1240px){.sec::before,.sec::after,.prevnext::before,.prevnext::after{display:none}}
 .sec-head{display:grid;grid-template-columns:1fr minmax(0,1.2fr);gap:24px 48px;align-items:end;margin-bottom:36px}
 .sec-head .lead{margin:0}
 .sec-head h2{margin:0}
@@ -243,7 +243,7 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 @media (max-width:600px){.faq summary{grid-template-columns:32px 1fr 28px}.faq .a{padding:0 0 20px 44px}}
 
 /* ---------- prev / next (Swiss) ---------- */
-.prevnext{border-top:1px solid var(--ink);margin-top:40px}
+.prevnext{border-top:1px solid var(--line);margin-top:40px;position:relative}
 .prevnext .wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .prevnext a{display:flex;flex-direction:column;gap:6px;min-height:72px;padding:22px 0;text-decoration:none;color:var(--ink)}
 .prevnext a.next{text-align:right;align-items:flex-end;grid-column:2}
@@ -262,7 +262,7 @@ label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
 
 /* ---------- floating buttons ---------- */
 .floatbar{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom));z-index:30;pointer-events:none;transition:transform .28s ease}
-html.scroll-down .floatbar:not(.is-static){transform:translateY(calc(100% + 40px))}
+html.js:not(.scroll-down) .floatbar:not(.is-static),html.foot-in .floatbar:not(.is-static){transform:translateY(calc(100% + 40px))}
 .floatbar.is-static{position:relative;bottom:auto}
 .floatbar .wrap{display:flex;justify-content:space-between;gap:10px}
 .floatbar .pod{pointer-events:auto;display:flex;align-items:center;gap:6px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:0 12px 30px -16px rgb(0 0 0/.35)}

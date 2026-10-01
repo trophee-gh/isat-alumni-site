@@ -1,8 +1,9 @@
 // isat-6: copy button, map quick views, mock form, hide-on-scroll, gallery font switcher. No network.
 (function () {
   var root = document.documentElement;
+  root.classList.add("js"); // without script, the floating buttons stay visible
 
-  // Header and floating buttons: hidden while scrolling down, shown on scrolling up.
+  // Scrolling down hides the header and shows the floating buttons; scrolling up does the reverse.
   // With prefers-reduced-motion the CSS drops the transition (they appear and disappear without sliding).
   var lastY = window.scrollY, ticking = false;
   function onScroll() {
@@ -15,9 +16,16 @@
   window.addEventListener("scroll", function () {
     if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
   }, { passive: true });
-  // Keyboard users: a focused element in the header or the bar brings them back.
+  // The footer carries the same links: once it is in view, the floating buttons step aside.
+  var foot = document.querySelector(".foot");
+  if (foot && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { root.classList.toggle("foot-in", es[0].isIntersecting); }).observe(foot);
+  }
+  // Keyboard users: focusing the header or the bar brings it back.
   document.addEventListener("focusin", function (e) {
-    if (e.target.closest && e.target.closest(".top, .floatbar")) root.classList.remove("scroll-down");
+    if (!e.target.closest) return;
+    if (e.target.closest(".top")) root.classList.remove("scroll-down");
+    else if (e.target.closest(".floatbar")) root.classList.add("scroll-down");
   });
 
   // Copyable address.
