@@ -4,9 +4,9 @@ title: Accueil · isat alumni
 description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingénieurs, histoire."
 ---
 {#- Sections shown (F5): a hidden one is false; numbers and hub links follow. -#}
-{%- set secs = ["chiffres", "carte", "histoire", "faq", "rejoindre", site.show.profils and "ingenieurs"] | secs -%}
+{%- set secs = ["missions", "chiffres", "carte", "histoire", "faq", "rejoindre", site.show.profils and "ingenieurs"] | secs -%}
 {%- set heroBefore %}{% include "components/en-card.njk" %}{% endset -%}
-{%- set hub = [{href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}, {href: "#ingenieurs", label: "Les ingénieurs"}] -%}
+{%- set hub = [{href: "#missions", label: "Missions"}, {href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}, {href: "#ingenieurs", label: "Les ingénieurs"}] -%}
 {%- set hero = {
   eyebrow: "Association des ingénieurs de l'ISAT",
   title: "L'automobile s'apprend à Nevers. Le réseau, partout.",
@@ -15,6 +15,15 @@ description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingéni
 } -%}
 {% include "components/hero.njk" %}
 {%- set heroBefore = false %}
+
+{#- F7: the mission before the figures (the five missions, as on Qui sommes-nous). -#}
+<section class="sec" id="missions"><div class="wrap">
+{%- set sh = {n: "missions" | secNum(secs), eyebrow: "Missions", title: "Cinq missions, simples et utiles.", lead: "Toutes modestes pour l'instant ; le site et la nouvelle direction doivent leur redonner de l'élan."} %}
+{% include "components/section-head.njk" %}
+{%- set figures = copy.missions %}{%- set figuresSlide = true %}
+{% include "components/figures.njk" %}
+{%- set figuresSlide = false %}
+</div></section>
 
 <section class="sec" id="chiffres"><div class="wrap">
 {%- set sh = {n: "chiffres" | secNum(secs), eyebrow: "L'association en chiffres", title: "Un réseau qui pèse.", lead: "Des chiffres tirés du fichier de l'école, en agrégats seulement. Ceux sur les carrières viendront d'une enquête auprès des anciens."} %}
