@@ -4,9 +4,9 @@ title: Accueil · isat alumni
 description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingénieurs, histoire."
 ---
 {#- Sections shown (F5): a hidden one is false; numbers and hub links follow. -#}
-{%- set secs = ["chiffres", "carte", site.show.profils and "ingenieurs", "histoire", "faq", "rejoindre"] | secs -%}
+{%- set secs = ["chiffres", "carte", "histoire", "faq", "rejoindre", site.show.profils and "ingenieurs"] | secs -%}
 {%- set heroBefore %}{% include "components/en-card.njk" %}{% endset -%}
-{%- set hub = [{href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#ingenieurs", label: "Les ingénieurs"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}] -%}
+{%- set hub = [{href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}, {href: "#ingenieurs", label: "Les ingénieurs"}] -%}
 {%- set hero = {
   eyebrow: "Association des ingénieurs de l'ISAT",
   title: "L'automobile s'apprend à Nevers. Le réseau, partout.",
@@ -31,20 +31,6 @@ description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingéni
 <p style="margin-top:18px"><a class="btn" href="/annuaire/">Ouvrir l'annuaire {% include "icons/arrow.njk" %}</a></p>
 </div></section>
 
-{%- if site.show.profils %}
-<section class="sec" id="ingenieurs"><div class="wrap">
-{%- set sh = {n: "ingenieurs" | secNum(secs), eyebrow: "Les ingénieurs ISAT", title: "Formés pour l'automobile, utiles partout.", lead: "Des portraits à venir : des parcours réels, avec l'accord de chacun. Ici, l'emplacement qu'ils occuperont."} %}
-{% include "components/section-head.njk" %}
-{%- set portraits = copy.portraits.slice(0, 3) %}{% set portraitCols = 3 %}
-{% include "components/portraits.njk" %}
-<p style="margin-top:22px"><a class="btn" href="/ingenieurs/">Découvrir les ingénieurs {% include "icons/arrow.njk" %}</a></p>
-<div style="margin-top:16px">
-{%- set quote = {text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.", cite: "Prénom N., promo <span class='tbd'>TBD</span> · citation à recueillir"} %}
-{% include "components/quote.njk" %}
-</div>
-</div></section>
-{%- endif %}
-
 <section class="sec" id="histoire"><div class="wrap">
 {%- set sh = {n: "histoire" | secNum(secs), eyebrow: "Frise", title: "Trente ans d'école, un réseau qui grandit.", lead: "Les promos grossissent : 29 diplômés en 1996, 180 en 2022. Les photos d'archives viendront de l'école et des anciens."} %}
 {% include "components/section-head.njk" %}
@@ -68,3 +54,18 @@ description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingéni
 {% include "components/cta-band.njk" %}
 </div>
 </div></section>
+
+{%- if site.show.profils %}
+<section class="sec" id="ingenieurs"><div class="wrap">
+{%- set sh = {n: "ingenieurs" | secNum(secs), eyebrow: "Les ingénieurs ISAT", title: "Formés pour l'automobile, utiles partout.", lead: "Des portraits à venir : des parcours réels, avec l'accord de chacun. Ici, l'emplacement qu'ils occuperont."} %}
+{% include "components/section-head.njk" %}
+{%- set portraits = copy.portraits %}{% set portraitStrip = true %}
+{% include "components/portraits.njk" %}
+{%- set portraitStrip = false %}
+<p style="margin-top:22px"><a class="btn" href="/ingenieurs/">Découvrir les ingénieurs {% include "icons/arrow.njk" %}</a></p>
+<div style="margin-top:16px">
+{%- set quote = {text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.", cite: "Prénom N., promo <span class='tbd'>TBD</span> · citation à recueillir"} %}
+{% include "components/quote.njk" %}
+</div>
+</div></section>
+{%- endif %}
