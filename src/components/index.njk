@@ -61,6 +61,8 @@ title: Components · isat alumni
 <div class="gal-stage">{% set portraits = copy.portraits.slice(0, 3) %}{% set portraitCols = 3 %}{% include "components/portraits.njk" %}</div>
 <p class="gal-variant">Quatre colonnes</p>
 <div class="gal-stage">{% set portraits = copy.portraits %}{% set portraitCols = 4 %}{% include "components/portraits.njk" %}</div>
+<p class="gal-variant">Bande défilante (Accueil, F8)</p>
+<div class="gal-stage">{% set portraits = copy.portraits %}{% set portraitStrip = true %}{% include "components/portraits.njk" %}{% set portraitStrip = false %}</div>
 <p class="gal-variant">Équipe, petits portraits</p>
 <div class="gal-stage">{% set team = copy.team %}{% include "components/team.njk" %}</div>
 </section>

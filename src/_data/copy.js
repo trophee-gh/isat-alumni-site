@@ -16,11 +16,6 @@ export default {
       { k: "Master Meeting", w: 3.7, v: "84" }, { k: "GI Auxerre", w: 1.3, v: "30" } ],
       text: `Source : fichier de l'école, agrégats uniquement. Secteurs et employeurs : ${tbd()} (enquête anciens à venir).` },
   ],
-  figuresEmploi: [
-    { cls: "b2 inv", label: "Anciens prêts à recevoir des offres", figure: "707", text: "21 % du fichier" },
-    { cls: "b2", label: "Diplômés depuis 1996", figure: "2 672", text: "cinq programmes" },
-    { cls: "b2", label: "En poste à 6 mois", figure: "83", small: "%", text: unv("source ancienne, non vérifié") },
-  ],
   figuresEn: [
     { cls: "b2 inv", label: "Graduates 1996–2022", figure: "2,672" },
     { cls: "b2", label: "Countries besides France", figure: "36" },
@@ -59,7 +54,6 @@ export default {
     { yr: "2005–11", title: "Le réseau grandit", text: `De 70 à 90 diplômés par promo. ${lorem}`, photo: "Atelier, années 2000" },
     { yr: "2012–19", title: "Cap sur l'international", text: `90 à 122 diplômés par promo ; le master AESM, enseigné en anglais. ${unv()}`, photo: "Promotion internationale" },
     { yr: "2022", title: "180 diplômés", text: `La plus grande promo du fichier. ${lorem}`, photo: "Remise des diplômes" },
-    { yr: "Demain", title: "Relancer l'association", text: `Un site, un annuaire opt-in, des rencontres avec les étudiants. ${lorem}`, photo: "Rencontre étudiants" },
   ],
   // Placeholder Q&A: this round is about the accordion's feel (trait-feedback, answer 5).
   faq: [

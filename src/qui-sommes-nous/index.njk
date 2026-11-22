@@ -6,13 +6,13 @@ title: Qui sommes-nous · isat alumni
   eyebrow: "Qui sommes-nous", place: "association loi 1901",
   title: "Une association d'anciens, relancée.",
   lead: "L'Association des ingénieurs de l'ISAT relie les diplômés à l'école et entre eux. Une équipe de six bénévoles la remet en route.",
-  hub: [{href: "#missions", label: "Missions"}, {href: "#equipe", label: "L'équipe"}, {href: "#histoire", label: "Histoire"}, {href: "#adherer", label: "Adhérer"}],
+  hub: [{href: "#missions", label: "Missions"}, {href: "#equipe", label: "L'équipe"}, {href: "#adherer", label: "Adhérer"}],
   fig: "Fig. 02"
 } -%}
 {% include "components/hero.njk" %}
 
 <section class="sec" id="missions"><div class="wrap">
-{%- set sh = {n: "01 / 04", eyebrow: "Missions", title: "Cinq missions, simples et utiles.", lead: "Toutes modestes pour l'instant ; le site et la nouvelle direction doivent leur redonner de l'élan."} %}
+{%- set sh = {n: "01 / 03", eyebrow: "Missions", title: "Cinq missions, simples et utiles.", lead: "Toutes modestes pour l'instant ; le site et la nouvelle direction doivent leur redonner de l'élan."} %}
 {% include "components/section-head.njk" %}
 {%- set figures = copy.missions %}{%- set figuresSlide = true %}
 {% include "components/figures.njk" %}
@@ -23,21 +23,14 @@ title: Qui sommes-nous · isat alumni
 </div></section>
 
 <section class="sec" id="equipe"><div class="wrap">
-{%- set sh = {n: "02 / 04", eyebrow: "L'équipe", title: "Six bénévoles.", lead: "Une section courte, à garder si elle plaît. Noms et rôles à venir."} %}
+{%- set sh = {n: "02 / 03", eyebrow: "L'équipe", title: "Six bénévoles.", lead: "Une section courte, à garder si elle plaît. Noms et rôles à venir."} %}
 {% include "components/section-head.njk" %}
 {%- set team = copy.team %}
 {% include "components/team.njk" %}
 </div></section>
 
-<section class="sec" id="histoire"><div class="wrap">
-{%- set sh = {n: "03 / 04", eyebrow: "Histoire", title: "D'où vient l'association.", lead: "Fondation, présidents, grands moments : à reconstituer avec les anciens. <span class='tbd'>TBD</span>"} %}
-{% include "components/section-head.njk" %}
-{%- set timeline = copy.timeline %}
-{% include "components/timeline.njk" %}
-</div></section>
-
 <section class="sec" id="adherer"><div class="wrap">
-{%- set sh = {n: "04 / 04", eyebrow: "Adhérer", title: "Soutenir le réseau.", lead: "L'adhésion finance les rencontres, l'annuaire et le site. Elle se fait sur HelloAsso, hors de ce site."} %}
+{%- set sh = {n: "03 / 03", eyebrow: "Adhérer", title: "Soutenir le réseau.", lead: "L'adhésion finance les rencontres, l'annuaire et le site. Elle se fait sur HelloAsso, hors de ce site."} %}
 {% include "components/section-head.njk" %}
 {% include "components/outbound.njk" %}
 </div></section>
