@@ -10,11 +10,7 @@ export default {
     { cls: "b2", label: "Pays hors France", figure: "36", text: "≈ 15 % des anciens localisés vivent à l'étranger." },
     { cls: "b2", label: "Prêts à relayer une offre", figure: "707", small: "21 %", text: "souhaitent être contactés pour des offres d'emploi." },
     { cls: "b2 dark", label: "Volontaires formateurs", figure: "327", small: "9,6 %", text: "animeraient une formation." },
-    { cls: "b2", label: "Équipe", figure: "6", text: `bénévoles au cœur de l'association. Rôles ${tbd()}` },
-    { cls: "b6", label: "Diplômés par programme · 1996–2022", bars: [
-      { k: "ISAT", w: 100, v: "2243" }, { k: "IRIT", w: 9.7, v: "217" }, { k: "AESM", w: 4.4, v: "98" },
-      { k: "Master Meeting", w: 3.7, v: "84" }, { k: "GI Auxerre", w: 1.3, v: "30" } ],
-      text: `Source : fichier de l'école, agrégats uniquement. Secteurs et employeurs : ${tbd()} (enquête anciens à venir).` },
+    { cls: "b2", label: "Équipe", figure: "6", text: `bénévoles au cœur de l'association. Rôles ${tbd()}` }
   ],
   figuresEn: [
     { cls: "b2 inv", label: "Graduates 1996–2022", figure: "2,672" },
