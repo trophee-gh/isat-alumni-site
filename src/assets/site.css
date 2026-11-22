@@ -276,12 +276,14 @@ html.js:not(.scroll-down) .floatbar:not(.is-static),html.foot-in .floatbar:not(.
 .floatbar .lbl{font:500 11px var(--mono);color:var(--muted);padding:0 10px 0 8px;text-transform:uppercase;letter-spacing:.08em}
 @media (max-width:600px){
   /* Mobile: one bar, the main action wide, the secondary as a compact round button. */
-  .floatbar .wrap{gap:8px}
+  .floatbar .wrap{gap:6px}
   .floatbar .lbl,.floatbar .hide-s{display:none}
   .floatbar .pod:first-child{padding:0;border:0} /* label hidden: the button is the pod, one edge only */
-  .floatbar .pod:first-child a{min-height:50px;padding:0 20px}
-  .floatbar .pod:last-child{padding:0} /* same height as the button beside it */
-  .floatbar .pod:last-child a{min-height:48px;min-width:48px;padding:0 14px}
+  .floatbar a{font-size:13px}
+  .floatbar .pod:first-child a{min-height:50px;padding:0 13px}
+  .floatbar .pod:last-child{padding:0;gap:0} /* same height as the button beside it */
+  .floatbar .pod:last-child a{min-height:48px;min-width:48px;padding:0 11px}
+  .floatbar .pod:last-child .arrow{display:none} /* three buttons in 360 px (F2) */
 }
 
 /* ---------- component gallery ---------- */
