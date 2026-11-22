@@ -3,33 +3,37 @@ layout: base.njk
 title: Accueil · isat alumni
 description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingénieurs, histoire."
 ---
+{#- Sections shown (F5): a hidden one is false; numbers and hub links follow. -#}
+{%- set secs = ["chiffres", "carte", site.show.profils and "ingenieurs", "histoire", "faq", "rejoindre"] | secs -%}
 {%- set heroBefore %}{% include "components/en-card.njk" %}{% endset -%}
+{%- set hub = [{href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#ingenieurs", label: "Les ingénieurs"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}] -%}
 {%- set hero = {
   eyebrow: "Association des ingénieurs de l'ISAT",
   title: "L'automobile s'apprend à Nevers. Le réseau, partout.",
   lead: "2 672 ingénieurs diplômés depuis 1996, dans 36 pays hors France. L'association les relie entre eux, à l'école et aux entreprises qui recrutent.",
-  hub: [{href: "#chiffres", label: "En chiffres"}, {href: "#carte", label: "Dans le monde"}, {href: "#ingenieurs", label: "Les ingénieurs"}, {href: "#histoire", label: "L'histoire"}, {href: "#rejoindre", label: "Rejoindre"}]
+  hub: hub | onPage(secs)
 } -%}
 {% include "components/hero.njk" %}
 {%- set heroBefore = false %}
 
 <section class="sec" id="chiffres"><div class="wrap">
-{%- set sh = {n: "01 / 06", eyebrow: "L'association en chiffres", title: "Un réseau qui pèse.", lead: "Des chiffres tirés du fichier de l'école, en agrégats seulement. Ceux sur les carrières viendront d'une enquête auprès des anciens."} %}
+{%- set sh = {n: "chiffres" | secNum(secs), eyebrow: "L'association en chiffres", title: "Un réseau qui pèse.", lead: "Des chiffres tirés du fichier de l'école, en agrégats seulement. Ceux sur les carrières viendront d'une enquête auprès des anciens."} %}
 {% include "components/section-head.njk" %}
 {%- set figures = copy.figuresHome %}
 {% include "components/figures.njk" %}
 </div></section>
 
 <section class="sec" id="carte"><div class="wrap">
-{%- set sh = {n: "02 / 06", eyebrow: "Annuaire · carte", title: "Où sont les anciens", lead: "36 pays hors France. Chaque point marque un pays, jamais une personne ; les effectifs par pays sont à venir."} %}
+{%- set sh = {n: "carte" | secNum(secs), eyebrow: "Annuaire · carte", title: "Où sont les anciens", lead: "36 pays hors France. Chaque point marque un pays, jamais une personne ; les effectifs par pays sont à venir."} %}
 {% include "components/section-head.njk" %}
 {%- set map = {id: "carte-accueil"} %}
 {% include "components/map.njk" %}
 <p style="margin-top:18px"><a class="btn" href="/annuaire/">Ouvrir l'annuaire {% include "icons/arrow.njk" %}</a></p>
 </div></section>
 
+{%- if site.show.profils %}
 <section class="sec" id="ingenieurs"><div class="wrap">
-{%- set sh = {n: "03 / 06", eyebrow: "Les ingénieurs ISAT", title: "Formés pour l'automobile, utiles partout.", lead: "Des portraits à venir : des parcours réels, avec l'accord de chacun. Ici, l'emplacement qu'ils occuperont."} %}
+{%- set sh = {n: "ingenieurs" | secNum(secs), eyebrow: "Les ingénieurs ISAT", title: "Formés pour l'automobile, utiles partout.", lead: "Des portraits à venir : des parcours réels, avec l'accord de chacun. Ici, l'emplacement qu'ils occuperont."} %}
 {% include "components/section-head.njk" %}
 {%- set portraits = copy.portraits.slice(0, 3) %}{% set portraitCols = 3 %}
 {% include "components/portraits.njk" %}
@@ -39,23 +43,24 @@ description: "L'association des ingénieurs de l'ISAT : chiffres, carte, ingéni
 {% include "components/quote.njk" %}
 </div>
 </div></section>
+{%- endif %}
 
 <section class="sec" id="histoire"><div class="wrap">
-{%- set sh = {n: "04 / 06", eyebrow: "Frise", title: "Trente ans d'école, un réseau qui grandit.", lead: "Les promos grossissent : 29 diplômés en 1996, 180 en 2022. Les photos d'archives viendront de l'école et des anciens."} %}
+{%- set sh = {n: "histoire" | secNum(secs), eyebrow: "Frise", title: "Trente ans d'école, un réseau qui grandit.", lead: "Les promos grossissent : 29 diplômés en 1996, 180 en 2022. Les photos d'archives viendront de l'école et des anciens."} %}
 {% include "components/section-head.njk" %}
 {%- set timeline = copy.timeline %}
 {% include "components/timeline.njk" %}
 </div></section>
 
 <section class="sec" id="faq"><div class="wrap">
-{%- set sh = {n: "05 / 06", eyebrow: "Questions fréquentes", title: "Questions, réponses.", lead: "Questions et réponses provisoires : ce tour règle la forme de l'accordéon."} %}
+{%- set sh = {n: "faq" | secNum(secs), eyebrow: "Questions fréquentes", title: "Questions, réponses.", lead: "Questions et réponses provisoires : ce tour règle la forme de l'accordéon."} %}
 {% include "components/section-head.njk" %}
 {%- set faq = copy.faq %}
 {% include "components/faq.njk" %}
 </div></section>
 
 <section class="sec" id="rejoindre"><div class="wrap">
-{%- set sh = {n: "06 / 06", eyebrow: "Rejoindre", title: "Suivre, adhérer, recruter.", lead: "Le quotidien de l'association vit sur LinkedIn ; l'adhésion passe par HelloAsso. Deux liens sortants, rien d'intégré."} %}
+{%- set sh = {n: "rejoindre" | secNum(secs), eyebrow: "Rejoindre", title: "Suivre, adhérer, recruter.", lead: "Le quotidien de l'association vit sur LinkedIn ; l'adhésion passe par HelloAsso. Deux liens sortants, rien d'intégré."} %}
 {% include "components/section-head.njk" %}
 {% include "components/outbound.njk" %}
 <div style="margin-top:16px">
