@@ -59,7 +59,6 @@ export default {
     { yr: "2005–11", title: "Le réseau grandit", text: `De 70 à 90 diplômés par promo. ${lorem}`, photo: "Atelier, années 2000" },
     { yr: "2012–19", title: "Cap sur l'international", text: `90 à 122 diplômés par promo ; le master AESM, enseigné en anglais. ${unv()}`, photo: "Promotion internationale" },
     { yr: "2022", title: "180 diplômés", text: `La plus grande promo du fichier. ${lorem}`, photo: "Remise des diplômes" },
-    { yr: "Demain", title: "Relancer l'association", text: `Un site, un annuaire opt-in, des rencontres avec les étudiants. ${lorem}`, photo: "Rencontre étudiants" },
   ],
   // Placeholder Q&A: this round is about the accordion's feel (trait-feedback, answer 5).
   faq: [
