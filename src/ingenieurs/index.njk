@@ -3,8 +3,8 @@ layout: base.njk
 title: Les ingénieurs ISAT · isat alumni
 ---
 {#- Sections shown (F5): a hidden one is false; numbers and hub links follow. -#}
-{%- set secs = ["formation", "programmes", site.show.parcours and "parcours", site.show.carrieres and "carrieres"] | secs -%}
-{%- set hub = [{href: "#formation", label: "La formation"}, {href: "#programmes", label: "Programmes"}, {href: "#parcours", label: "Parcours"}, {href: "#carrieres", label: "Carrières"}] -%}
+{%- set secs = ["formation", "programmes", site.show.carrieres and "carrieres", site.show.parcours and "parcours"] | secs -%}
+{%- set hub = [{href: "#formation", label: "La formation"}, {href: "#programmes", label: "Programmes"}, {href: "#carrieres", label: "Carrières"}, {href: "#parcours", label: "Parcours"}] -%}
 {%- set hero = {
   eyebrow: "Les ingénieurs ISAT", place: "profil",
   title: "Ce qu'est un ingénieur ISAT.",
@@ -30,19 +30,6 @@ title: Les ingénieurs ISAT · isat alumni
 {% include "components/engineers.njk" %}
 </div></section>
 
-{%- if site.show.parcours %}
-<section class="sec" id="parcours"><div class="wrap">
-{%- set sh = {n: "parcours" | secNum(secs), eyebrow: "Parcours", title: "Des visages, bientôt.", lead: "Chaque portrait sera publié avec l'accord de la personne. En attendant, la place qu'ils prendront."} %}
-{% include "components/section-head.njk" %}
-{%- set portraits = copy.portraits %}{% set portraitCols = 4 %}
-{% include "components/portraits.njk" %}
-<div style="margin-top:16px">
-{%- set quote = {text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.", cite: "Prénom N., promo <span class='tbd'>TBD</span>"} %}
-{% include "components/quote.njk" %}
-</div>
-</div></section>
-{%- endif %}
-
 {%- if site.show.carrieres %}
 <section class="sec" id="carrieres"><div class="wrap">
 {%- set sh = {n: "carrieres" | secNum(secs), eyebrow: "Carrières", title: "Où travaillent-ils ?", lead: "Secteurs, employeurs, délai du premier emploi : les données manquent. Une enquête auprès des anciens les fournira, en agrégats."} %}
@@ -58,6 +45,19 @@ title: Les ingénieurs ISAT · isat alumni
 <div style="margin-top:16px">
 {%- set cta = {title: "Recruter un ingénieur ISAT", lead: "Envoyez l'offre à l'association : elle la relaie aux anciens.", href: "/emploi/", label: "Proposer une offre"} %}
 {% include "components/cta-band.njk" %}
+</div>
+</div></section>
+{%- endif %}
+
+{%- if site.show.parcours %}
+<section class="sec" id="parcours"><div class="wrap">
+{%- set sh = {n: "parcours" | secNum(secs), eyebrow: "Parcours", title: "Des visages, bientôt.", lead: "Chaque portrait sera publié avec l'accord de la personne. En attendant, la place qu'ils prendront."} %}
+{% include "components/section-head.njk" %}
+{%- set portraits = copy.portraits %}{% set portraitCols = 4 %}
+{% include "components/portraits.njk" %}
+<div style="margin-top:16px">
+{%- set quote = {text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.", cite: "Prénom N., promo <span class='tbd'>TBD</span>"} %}
+{% include "components/quote.njk" %}
 </div>
 </div></section>
 {%- endif %}
